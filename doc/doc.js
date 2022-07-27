@@ -1,13 +1,20 @@
-is_auto_dark = true;
+is_auto_dark = true
 
-function changeColorDoc(sender) {
-    var icon = sender.getElementsByTagName('i')[0]
-    var classes = icon.getAttribute('class').split(' ')
-    if(classes[1] === 'fa-sun-o') {
+function changeColorIn(sender) {
+    if(sender.checked) {
         changeColor("dark")
-        icon.setAttribute('class','fa fa-moon-o')
     } else {
         changeColor("light")
-        icon.setAttribute('class','fa fa-sun-o')
     }
+}
+
+function toTop() {
+    document.documentElement.scrollTop = 0
+}
+
+function hiddenContext() {
+    const body = document.getElementById("context")
+    body.style.minWidth = 0
+    body.style.padding = 0
+    body.style.width = 0
 }

@@ -3,6 +3,14 @@ input {
     color: var(--color-font);
 }
 
+.ss-code {
+    background: var(--color-main);
+    color: var(--color-font-r);
+    border-radius: 7px;
+    padding: 3px 10px;
+    margin: 0 5px;
+}
+
 .ss-card {
     background-color: var(--color-card);;
     box-shadow:0 0 5px transparent;
@@ -132,11 +140,55 @@ input {
     padding: calc(var(--radio-size) / 4);
 }
 
+.ss-checkbox {
+    --checkbox-size: 13px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+.ss-checkbox > input {
+    display: none;
+}
+.ss-checkbox > div {
+    border: 1px solid var(--color-font);
+    border-radius: 30%;
+    background: transparent;
+    transition: background .3s, border .1s;
+    height: var(--checkbox-size);
+    width: var(--checkbox-size);
+}
+.ss-checkbox > input:checked ~ div {
+    background: var(--color-bg);
+    border: calc(var(--checkbox-size) / 3) solid var(--color-main);
+}
+.ss-checkbox > span {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+.ss-checkbox.button {
+    border: 2px solid var(--color-main);
+    border-radius: 7px;
+    background: transparent;
+    padding: 10px 15px;
+}
+.ss-checkbox.button > div {
+    border: 0 !important;
+    max-width: 5px;
+    border-radius: 5px;
+    transform: scaleY(0);
+    background: var(--color-main) !important;
+    transition: transform .3s;
+}
+.ss-checkbox.button > input:checked ~ div {
+    transform: scaleY(1);
+}
+
 .ss-switch {
     --switch-dot-border: 4px;
     --switch-dot-margin: 5px;
     --switch-height: 30px;
     min-width: 55px;
+    margin-bottom: 0;
 }
 .ss-switch > div {
     border-radius: var(--switch-height);
