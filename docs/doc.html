@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Border Card UI</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#313D43">
+
+    <!-- 附加依赖 -->
+    <link rel="stylesheet" href="https://api.stapxs.cn/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="https://api.stapxs.cn/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://api.stapxs.cn/css/prism-light.css">
+    <link rel="stylesheet" href="https://api.stapxs.cn/font/fira_code.css">
+    <!-- BCUI -->
+    <link rel="stylesheet" href="../css/color-dark.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- 当前页面样式 -->
+    <link rel="stylesheet" href="doc.css">
+</head>
+
+<body style="background: var(--color-bg);color: var(--color-font)">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: var(--color-card);margin-bottom: 20px;">
+    <div class="container-lg" style="padding-left: 30px;">
+        <a class="navbar-brand" href="/">
+            Border Card UI
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link " href="index.html">主页</a>
+                <a class="nav-item nav-link " href="doc.html">文档</a>
+                <a class="nav-item nav-link " href="use.html">使用</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div style="display: flex;flex-direction: column;height: calc(100vh - 76px);">
+
+    <div class="container-xl" style="flex: 1;">
+        <div class="main-body">
+            <div class="ss-card" style="overflow: hidden;" id="context">
+                <div>
+                    <span>目录</span>
+                    <div></div>
+                    <svg onclick="toTop()" style="transform: rotate(90deg);height: 1.2rem;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M77.25 256l137.4-137.4c12.5-12.5 12.5-32.75 0-45.25s-32.75-12.5-45.25 0l-160 160c-12.5 12.5-12.5 32.75 0 45.25l160 160C175.6 444.9 183.8 448 192 448s16.38-3.125 22.62-9.375c12.5-12.5 12.5-32.75 0-45.25L77.25 256zM269.3 256l137.4-137.4c12.5-12.5 12.5-32.75 0-45.25s-32.75-12.5-45.25 0l-160 160c-12.5 12.5-12.5 32.75 0 45.25l160 160C367.6 444.9 375.8 448 384 448s16.38-3.125 22.62-9.375c12.5-12.5 12.5-32.75 0-45.25L269.3 256z"/></svg>
+                    <svg onclick="hiddenContext()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM64 256C64 238.3 78.33 224 96 224H480C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H96C78.33 288 64 273.7 64 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+                </div>
+                <div>
+                    <a href="#ss-card">卡片</a>
+                    <a href="#ana-card">语录栏</a>
+                    <a href="#ss-radio">单选按钮</a>
+                    <a href="#ss-checkbox">多选按钮</a>
+                    <a href="#ss-switch">开关</a>
+                </div>
+            </div>
+            <div>
+                <div class="ss-card ana-card" style="margin-bottom: 20px;color: var(--color-main);">
+                    <span>你问为什么就这么点？咕咕咕咕 ……</span>
+                </div>
+                <div id="ss-card" class="ss-card" style="margin-bottom: 20px;">
+                    <header><div></div>卡片：ss-card</header>
+                    <div class="body">
+                        <p>Border Card UI 顾名思义组成依赖大量的卡片，卡片组件是最基础的页面组件。</p>
+                        <header>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            <span>基本使用</span>
+                        </header>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-code-o" aria-hidden="true"></i>HTML</header>
+                            <pre class="language-html" style="margin:0 !important;">
+                                <code class="language-html">&lt;div class="ss-card"&gt;&lt;/div&gt;</code>
+                            </per>
+                        </div>
+                        <p>你可以把卡片相互叠起来，但是 BCUI 并不会自动处理卡片之间的层级颜色，所以你需要自己处理。</p>
+                        <p>BCUI 提供最大两层的卡片颜色以及对应的字体颜色，同时还提供了用于叠加在主题色上的反转字体颜色。</p>
+                        <div style="line-height: 2rem;margin: 0 20px;">
+                            <div style="background: var(--color-bg);color: var(--color-font)">&nbsp;&nbsp;--color-bg</div>
+                            <div style="background: var(--color-card);color: var(--color-font-2)">&nbsp;&nbsp;--color-card</div>
+                            <div style="background: var(--color-card-1);color: var(--color-font-1)">&nbsp;&nbsp;--color-card-1</div>
+                            <div style="background: var(--color-card-2);color: var(--color-font)">&nbsp;&nbsp;--color-card-2</div>
+                        </div>
+                        <header>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            <span>添加标题</span>
+                        </header>
+                        <p>你可以使用<code class="ss-code">&lt;header&gt;</code>来为卡片添加标题。</p>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-code-o" aria-hidden="true"></i>HTML</header>
+                            <pre class="language-html" style="margin:0 !important;">
+                                <code class="language-html">&lt;div class="ss-card"&gt;
+    &lt;header&gt;&lt;div&gt;&lt;/div&gt;带有标头的卡片&lt;/header&gt;
+&lt;/div&gt;
+&lt;div class="ss-card"&gt;
+    &lt;header&gt;
+        &lt;i class="fa fa-file-code-o" aria-hidden="true"&gt;&lt;/i&gt;
+        带有文本图标的卡片
+    &lt;/header&gt;
+&lt;/div&gt;</code>
+                            </per>
+                        </div>
+                    </div>
+                </div>
+                <div id="ana-card" class="ss-card" style="margin-bottom: 20px;">
+                    <header><div></div>语录栏：ana-card</header>
+                    <div class="body">
+                        <p>这是个卡片扩展，用于展示一个单行的重要文本，可以用于公告等。</p>
+                        <header>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            <span>基本使用</span>
+                        </header>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-code-o" aria-hidden="true"></i>HTML</header>
+                            <pre class="language-html" style="margin:0 !important;">
+                                <code class="language-html">&lt;div class="ss-card ana-card"&gt;
+    &lt;div&gt;&lt;/div&gt;
+    &lt;span&gt;『我的世界』 —— 很简单而已&lt;/span&gt;
+&lt;/div&gt;</code>
+                            </per>
+                        </div>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-text-o" aria-hidden="true"></i>VIEW</header>
+                            <div class="ss-card ana-card" style="margin: 20px 20px 0 20px;background-color: var(--color-card-2);">
+                                <div></div>
+                                <span>『我的世界』 —— 很简单而已</span>
+                            </div>
+                            <div style="height: 20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ss-radio" class="ss-card" style="margin-bottom: 20px;">
+                    <header><div></div>单选按钮：ss-radio</header>
+                    <div class="body">
+                        <p>就只是普通的单选按钮而已。</p>
+                        <header>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            <span>基本使用</span>
+                        </header>
+                        <p>你需要覆盖<code class="ss-code">--radio-size</code>参数来修改它的大小，默认为<code class="ss-code">32px</code>，见下面的例子：</p>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-code-o" aria-hidden="true"></i>HTML</header>
+                            <pre class="language-html" style="margin:0 !important;">
+                                <code class="language-html">&lt;label class="ss-radio" style="--radio-size: 23px;"&gt;
+    &lt;input type="radio"&gt;
+    &lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/label&gt;</code>
+                            </per>
+                        </div>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-text-o" aria-hidden="true"></i>VIEW</header>
+                            <div style="display: flex;padding: 20px 0;">
+                                <div style="display: flex;align-items: center;margin-left: 50px;">
+                                    <label class="ss-radio" style="--radio-size: 23px;margin-right: 5px;">
+                                        <input type="radio" name="abab">
+                                        <div style="background: var(--color-main);"><div></div></div>
+                                    </label>
+                                    <span style="font-size: 0.9rem;font-weight: 200;color: var(--color-main);">男</span>
+                                </div>
+                                <div style="display: flex;align-items: center;margin-left: 50px;">
+                                    <label class="ss-radio" style="--radio-size: 23px;margin-right: 5px;">
+                                        <input type="radio" name="abab">
+                                        <div style="background: var(--color-main);"><div></div></div>
+                                    </label>
+                                    <span style="font-size: 0.9rem;font-weight: 200;color: var(--color-main);">女</span>
+                                </div>
+                                <div style="display: flex;align-items: center;margin-left: 50px;">
+                                    <label class="ss-radio" style="--radio-size: 23px;margin-right: 5px;">
+                                        <input type="radio" name="abab">
+                                        <div style="background: var(--color-main);"><div></div></div>
+                                    </label>
+                                    <span style="font-size: 0.9rem;font-weight: 200;color: var(--color-main);">其它</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ss-checkbox" class="ss-card" style="margin-bottom: 20px;">
+                    <header><div></div>多选按钮：ss-checkbox</header>
+                    <div class="body">
+                        <p>就只是普通的多选按钮而已，为了符合配色要求进行简单重制的版本。</p>
+                        <header>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            <span>基本使用</span>
+                        </header>
+                        <p>你可以使用<code class="ss-code">--checkbox-size</code>参数来修改它的大小，默认为<code class="ss-code">13px</code>，见下面的例子：</p>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-code-o" aria-hidden="true"></i>HTML</header>
+                            <pre class="language-html" style="margin:0 !important;">
+                                <code class="language-html">&lt;label class="ss-radio" style="--checkbox-size: 15px;"&gt;
+    &lt;input type="checkbox"&gt;
+    &lt;div&gt;&lt;/div&gt;
+&lt;/label&gt;</code>
+                                </per>
+                        </div>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-text-o" aria-hidden="true"></i>VIEW</header>
+                            <div style="display: flex;align-items: center;padding: 20px 0;margin-left: 50px;">
+                                <label class="ss-checkbox" style="--checkbox-size: 15px">
+                                    <input type="checkbox">
+                                    <div></div>
+                                    <span>自动切换暗黑模式</span>
+                                </label>
+                            </div>
+                        </div>
+                        <header>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            <span>按钮样式</span>
+                        </header>
+                        <p>在样式表中追加<code class="ss-code">button</code>样式可以将多选按钮显示为 button 样式。
+                        <br>（此样式暂不确认，可能会在将来修改或移除）</p>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-text-o" aria-hidden="true"></i>VIEW</header>
+                            <div style="display: flex;align-items: center;padding: 20px 0;margin-left: 50px;">
+                                <label class="ss-checkbox button" style="--checkbox-size: 15px;background: var(--color-card-2);">
+                                    <input type="checkbox">
+                                    <div></div>
+                                    <span>自动切换暗黑模式</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ss-switch" class="ss-card" style="margin-bottom: 20px;">
+                    <header><div></div>开关：ss-switch</header>
+                    <div class="body">
+                        <p>这是个基于 checkbox 的开关组件，就是个普通的 switch 而已。</p>
+                        <header>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            <span>基本使用</span>
+                        </header>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-code-o" aria-hidden="true"></i>HTML</header>
+                            <pre class="language-html" style="margin:0 !important;">
+                                <code class="language-html">&lt;label class="ss-switch"&gt;
+     &lt;input type="checkbox"&gt;
+     &lt;div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;
+ &lt;/label&gt;</code>
+                            </per>
+                        </div>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-text-o" aria-hidden="true"></i>VIEW</header>
+                            <div style="display: flex;align-items: center;padding: 20px 0;margin-left: 50px;">
+                                <label class="ss-switch">
+                                    <input type="checkbox" onchange="changeColorIn(this)">
+                                    <div><div></div></div>
+                                </label>
+                                <span style="font-size: 0.9rem;color: var(--color-main);margin-left: 10px;">夜间模式</span>
+                            </div>
+                        </div>
+                        <header>
+                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            <span>自定义</span>
+                        </header>
+                        <p>你可以通过覆盖修改<code class="ss-code">--switch-dot-border</code><code class="ss-code">--switch-dot-margin</code><code class="ss-code">--switch-height</code><code class="ss-code">min-width</code>参数来更全面的修改开关的样式，
+                        他们分别是开关白色边框的宽度、开关离外边框的距离（可以为负数）、开关的高度以及开关的宽度，如下例子：</p>
+                        <div class="ss-card" style="margin: 0 20px;background-color: var(--color-card-1);margin-bottom: 10px;">
+                            <header><i class="fa fa-file-text-o" aria-hidden="true"></i>VIEW</header>
+                            <div style="display: flex;align-items: center;padding: 20px 0;margin-left: 50px;">
+                                <label class="ss-switch" style="--switch-dot-border: 4px;--switch-dot-margin: -4px;--switch-height: 15px;min-width: 37px;">
+                                    <input type="checkbox" onchange="changeColorIn(this)">
+                                    <div><div></div></div>
+                                </label>
+                                <span style="font-size: 0.9rem;color: var(--color-main);margin-left: 10px;">夜间模式</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+                <footer>
+                    <div class="ss-card">
+                        <header>Border Card UI
+                            <span>
+                                For Web
+                            </span>
+                        </header>
+                        <span>Copyright © 2020 - 2021 Stapx Steve [ 林槐 ]</span><br>
+                        <div style="float: right;margin-top: -44px;">
+                            <svg style="width: 50px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 274 259"><g id="圖層_2" data-name="圖層 2"><g id="本体"><rect class="cls-1" x="19" y="167" width="28" height="28"/><rect class="cls-1" x="62" y="181" width="14" height="14"/><rect class="cls-1" x="89" y="163" width="14" height="14"/><rect class="cls-1" x="62" y="63" width="14" height="14"/><rect class="cls-1" x="82" y="85" width="14" height="14"/><rect class="cls-1" x="114" y="66" width="28" height="28"/><polygon class="cls-1" points="112.54 153.5 33.5 153.5 33.5 106.5 155 106.5 155.5 106.5 159.37 106.5 159.46 207.5 159.5 254.36 159.5 254.46 144.5 254.47 144.5 254.37 144.5 238.5 116.5 238.5 116.5 254.4 116.5 254.5 112.63 254.5 112.63 254.4 3.54 254.5 3.5 207.64 112.59 207.54 112.54 153.5"/><polygon class="cls-1" points="183.51 114.5 198.5 114.5 198.5 130.5 198.5 131.49 269.5 131.42 269.48 103.5 219.5 103.55 219.5 85.47 269.5 85.42 269.5 84.5 269.5 36.42 269.5 20.5 269.48 20.5 251.5 20.5 251.5 5.52 251.5 5.5 232.5 5.5 232.5 5.53 183.5 5.58 183.53 36.5 232.5 36.45 232.5 54.53 219.5 54.55 219.5 54.5 182.5 54.5 182.5 114.5 183.51 114.5"/><rect class="cls-1" x="242" y="153" width="28" height="28"/><rect class="cls-1" x="183" y="240" width="14" height="14"/><rect class="cls-1" x="204" y="166" width="26" height="14"/><rect class="cls-1" x="183" y="190" width="14" height="41"/><polygon class="cls-1" points="269.5 189.5 269.5 230.62 245.62 254.5 203.5 254.5 203.5 189.5 269.5 189.5"/><rect class="cls-1" width="8" height="8"/><rect class="cls-1" x="266" y="251" width="8" height="8"/><polygon class="cls-1" points="3.5 33.16 30.77 5.5 50.5 5.5 145.5 5.5 145.5 19.5 159.5 19.5 159.5 52.5 50.5 52.5 50.5 153.5 3.5 153.5 3.5 52.5 3.5 33.16"/></g></g></svg>        </div>
+                    </div>
+                    <div>
+                        <span>
+                            <a rel="nofollow" href="http://beian.miit.gov.cn" target="_blank">苏ICP备 20015498号-2 | </a><a href="https://icp.gov.moe" target="_blank">萌ICP备 </a><a href="https://icp.gov.moe/?keyword=20202320" target="_blank"> 20202320号</a>
+                        </span>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+<script src="prism.js"></script>
+<script src="doc.js"></script>
+<script src="https://api.stapxs.cn/js/util/jquery-1.12.4.js"></script>
+<script src="https://api.stapxs.cn/bootstrap/popper.min.js"></script>
+<script src="https://api.stapxs.cn/bootstrap/bootstrap.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/auto-theme.js"></script>
+</html>
