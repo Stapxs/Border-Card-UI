@@ -1,0 +1,24 @@
+/* 页面样式 */
+html, body {
+    background: var(--color-bg);
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+}
+
+/* 卡片颜色层级 */
+.card {
+    background: var(--color-card) !important;
+}
+.card-1 {
+    background: var(--color-card-1) !important;
+}
+.card-2 {
+    background: var(--color-card-2) !important;
+}

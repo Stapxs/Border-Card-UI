@@ -1,9 +1,11 @@
 import { App } from 'vue'
+
 import Card from './ss-card'
+import ScrollTab from './bc-scrolltab'
 
 // 组件列表
 const components = [
-    Card
+    Card, ScrollTab
 ]
 
 // 全局注册所有组件
@@ -13,7 +15,7 @@ const install = (app: App): void => {
 
 // 为组件提供 install 安装方法，供按需引入
 export {
-    Card
+    Card, ScrollTab
 }
 
 export default {
