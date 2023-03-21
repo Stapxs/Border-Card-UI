@@ -46,8 +46,9 @@ export default defineComponent({
             if(titles) {
                 for(let i = 0; i < titles.length; i++) {
                     const title = titles[i]
+                    const bodyTop = body?.getBoundingClientRect().top || 0
                     const titleTop = title.getBoundingClientRect().top
-                    if(titleTop > 0) {
+                    if(titleTop - bodyTop >= 0 && this.titleList[i]) {
                         this.titleList.forEach(item => {
                             item.select = false
                         })
@@ -65,6 +66,8 @@ export default defineComponent({
             const titles = body?.getElementsByTagName('h2')
             if(titles) {
                 for(let i = 0; i < titles.length; i++) {
+                    // 排除父级不是 body 的 h2 标签
+                    if(titles[i].parentElement?.id != 'bc-scrolltab-' + this.tabId) continue
                     const title = titles[i]
                     title.id = 'bc-scrolltab-title-' + this.tabId + '-' + i
                     this.titleList.push({
@@ -93,7 +96,7 @@ export default defineComponent({
 }
 .scroll-list .body > span {
     background: var(--color-main);
-    margin: -20px -30px 0 -30px;
+    margin: -20px -30px 20px -30px;
     border-radius: 7px 7px 0 0;
     color: var(--color-font-r);
     width: calc(100% + 20px);
@@ -112,8 +115,7 @@ export default defineComponent({
     display: flex;
 }
 .scroll-list .body > a.select {
-    background: var(--color-main);
-    color: var(--color-font-r);
+    background: var(--color-card-1);
 }
 .scroll-list .body > a > svg {
     margin-right: 10px;
@@ -122,6 +124,7 @@ export default defineComponent({
 
 .scroll-body {
     color: var(--color-font);
+    scroll-behavior: smooth;
     flex-direction: column;
     overflow-y: scroll;
     display: flex;

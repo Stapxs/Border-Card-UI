@@ -48,8 +48,6 @@ export default defineComponent({
     transition: box-shadow .3s;
     color: var(--color-font);
     border-radius: 7px;
-    min-height: 40px;
-    min-width: 40px;
     padding: 20px;
     margin: 5px;  /* 阴影的预留边距 */
 }

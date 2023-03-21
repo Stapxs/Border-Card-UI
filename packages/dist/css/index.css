@@ -22,3 +22,52 @@ html, body {
 .card-2 {
     background: var(--color-card-2) !important;
 }
+
+/* 字体颜色 */
+.font,
+.font a,
+.font span {
+    color: var(--color-font);
+}
+.font svg {
+    fill: var(--color-font);
+}
+.font-1,
+.font-1 a,
+.font-1 span {
+    color: var(--color-font-1);
+}
+.font-1 svg {
+    fill: var(--color-font-1);
+}
+.font-2,
+.font-2 a,
+.font-2 span {
+    color: var(--color-font-2);
+}
+.font-2 svg {
+    fill: var(--color-font-2);
+}
+
+/* 按钮全局默认样式 */
+button {
+    background: var(--color-main);
+    color: var(--color-font-r);
+    border-radius: 7px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    height: 33px;
+    border: 0;
+}
+button:hover {
+    opacity: 0.95;
+}
+button:focus {
+    outline: none;
+}
+button:active {
+    opacity: 0.9;
+}
+button:disabled {
+    opacity: 0.4;
+}
