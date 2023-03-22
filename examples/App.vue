@@ -134,7 +134,7 @@
             <ul>
                 <li><code>title</code> ：标签卡列表的标题。如果存在将会显示在标签卡列表的左边，同时所有选项将会右对齐显示。</li>
                 <li><code>icon</code> ：标签项的图标。使用 Font Awesome 名称。你需要把它添加在每个正文的 DIV 上，在有图标的时候优先显示图标。</li>
-                <li><code>name</code> : 标签项的名字。你需要把它添加在每个正文的 DIV 上。</li>
+                <li><code>name</code> : 「必填」标签项的名字。你需要把它添加在每个正文的 DIV 上。</li>
             </ul>
             <h3>示例</h3>
             <ss-card class="card-1" title="view" icon="fa-solid fa-mountain">
@@ -220,12 +220,9 @@
                             <button @click="addPop" style="padding: 5px 20px;margin: 10px auto;">显示弹窗</button>
                         </div>
                     </ss-card>
-                    <ss-card style="margin-top: 10px;">
-                        <div style="display: flex;align-items: center;"> 
-                            <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-mountain"/>
-                            <span>当多个弹窗被添加时，他们会被排在下面依次准备被显示（同时界面上会叠加最多三个重叠提示），
-                                一旦弹窗被添加组件并没有提供移除其中某一个的方法，你可以自己搓反正是个列表（躲</span>
-                        </div>
+                    <ss-card title="样式" icon="fa-solid fa-mountain">
+                        <span>当多个弹窗被添加时，他们会被排在下面依次准备被显示（同时界面上会叠加最多三个重叠提示），
+                            一旦弹窗被添加组件并没有提供移除其中某一个的方法，你可以自己搓反正是个列表（躲</span>
                     </ss-card>
                 </div>
                 <div class="code card-2"><code>
@@ -248,11 +245,174 @@
                 </code></div>
             </ss-card>
         </ss-card>
+        <h2 icon="fa-solid fa-message">吐司</h2>
+        <ss-card title="全局吐司：bc-toast" icon>
+            <p>
+                欢迎使用超文本烤箱协议！这是个支持它的吐司组件，你可以在任何地方使用它来显示一个吐司。
+            </p>
+            <h3>可选参数</h3>
+            <ul>
+                <li><code>time</code> : 吐司的显示时间（毫秒）。默认为 5000。</li>
+            </ul>
+            <ss-card class="card-1" style="margin-top: 10px;margin: 0 30px;">
+                <div style="display: flex;align-items: center;"> 
+                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info"/>
+                    <span>建议把组件放置在页面文档的最底端以防止一些奇怪的排版错误</span>
+                </div>
+            </ss-card>
+            <h3>方法</h3>
+            在应用初始化导入组件后，Toast 的操作方法将被挂载到全局 <code>$bcui['bc-toast']</code> 下，你可以直接使用它来操作吐司。
+            <ul>
+                <li><code>show(info: ToastInfo): number</code> ：显示吐司，返回吐司 ID。参数 <code>info</code> 是一个对象，它包含了吐司的信息，具体内容如下：
+                    <ul>
+                        <li><code>icon</code> : 「必填」吐司的图标。</li>
+                        <li><code>text</code> : 「必填」吐司的文本。</li>
+                        <li><code>autoClose</code> : 是否在超时后自动关闭。默认 false。</li>
+                    </ul>
+                </li>
+                <li><code>remove(id: number)</code> ：关闭指定 ID 的吐司。</li>
+                <li><code>clear()</code> ：关闭所有吐司。</li>
+            </ul>
+            <h3>示例</h3>
+            <ss-card class="card-1" title="view" icon="fa-solid fa-mountain">
+                <div class="view-space" style="display: flex;">
+                    <ss-card title="操作" icon>
+                        <div style="display: flex;flex-direction: column;">
+                            <button @click="showToast" style="padding: 5px 20px;margin: 10px auto;">显示吐司</button>
+                            <button @click="clearToast" style="padding: 5px 20px;margin: 10px auto;">清空吐司</button>
+                        </div>
+                    </ss-card>
+                    <ss-card style="flex: 1;" title="样式" icon="fa-solid fa-mountain">
+                        <span>你可以通过给吐司组件添加 css 样式来修改它的位置 ……</span>
+                    </ss-card>
+                </div>
+                <div class="code card-2"><code>
+                    {{ 'const toast = getCurrentInstance()?.appContext.config.globalProperties.$bcui[\'bc-toast\']\n' }}
+                    {{  'if(toast) {\n' }}
+                    {{  '   const toastInfo = {\n' }}
+                    {{  '       icon: \'fa-solid fa-circle-info\',\n' }}
+                    {{  '       text: \'这是一条吐司消息\',\n' }}
+                    {{  '       autoClose: false\n' }}
+                    {{  '   }\n' }}
+                    {{  '   this.toast.show(toastInfo)\n' }}
+                    {{  '}' }}
+                </code></div>
+            </ss-card>
+        </ss-card>
+        <h2 icon="fa-solid fa-square-caret-down">菜单</h2>
+        <ss-card title="菜单：bc-menu" icon>
+            <p>
+                这是一个菜单组件，它可以在任意 DIV 下的任意位置显示一个菜单，同时支持打开时指定显示部分菜单项
+                （不过不支持多级菜单）。
+            </p>
+            <p>
+                菜单的正文有两种设置方式，分别为自动生成和自定义；如果你选择自动生成，你需要按照要求书写正文，可以参考下面的示例。
+                如果你选择自定义，你可以在正文中自由书写任意内容，但是你需要自己处理菜单项的点击事件。
+            </p>
+            <h3>可选参数</h3>
+            <ul>
+                <li><code>data</code> : 菜单显示参数。菜单将根据配置显示，包含如下参数：
+                    <ul>
+                        <li><code>show</code> : 「必填」是否显示。</li>
+                        <li><code>point</code> : 「必填」显示的坐标，像是 <code>{ x: 0, y: 0 }</code>。</li>
+                        <li><code>list</code> : 要显示的菜单项 ID 字符串列表。</li>
+                    </ul>
+                </li>
+                <li><code>name</code> : 菜单名。全局工具方法需要它，用不着可以不写。</li>
+                <li><code>@close</code> : 关闭菜单回调。如果是选择选项导致的关闭，会传递菜单项 ID。</li>
+                <li><code>icon</code> : 「自动生成必填」菜单项图标。你需要写在正文的 LI 元素上。</li>
+                <li><code>id</code> : 「自动生成必填」菜单项 ID。你需要写在正文的 LI 元素上。</li>
+            </ul>
+            <ss-card class="card-1" style="margin-top: 10px;margin: 0 30px;">
+                <div style="display: flex;align-items: center;"> 
+                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-mountain"/>
+                    <span>
+                        菜单组件会使用 <code>position: absolute;</code> 来覆盖父级 DIV，
+                        为了防止意外的排版错误，建议给菜单组件的父级元素添加 <code>position: relative;</code>。
+                    </span>
+                </div>
+            </ss-card>
+            <h3>方法</h3>
+            在应用初始化导入组件后，Menu 的工具方法将被挂载到全局 <code>$bcui['bc-menu']</code> 下，你可以使用它们来简化一些操作。
+            <ul>
+                <li><code>set(name: string, event: MouseEvent): MenuStatue</code> : 根据鼠标点击事件获取指定菜单的显示位置。</li>
+            </ul>
+            <h3>示例</h3>
+            <ss-card class="card-1" title="view" icon="fa-solid fa-mountain">
+                <div class="view-space" style="display: flex;flex-direction: column;position: relative;">
+                    <ss-card class="menu-view-bg">
+                        <div class="menu-view">
+                            <div @contextmenu.prevent="showMenu">
+                                <img class="hd" :src="require('./assets/lama.jpg')">
+                                <ss-card class="card-1"><div class="menu-view-body">您赶紧把 BCUI 做成组件罢！</div></ss-card>
+                            </div>
+                            <div @contextmenu.prevent="showMenu($event, true)">
+                                <div class="space"></div>
+                                <ss-card class="card-1"><div class="menu-view-body">啊？什么？听不见 ——</div></ss-card>
+                            </div>
+                            <div @contextmenu.prevent="showMenu">
+                                <img class="hd" :src="require('./assets/lama.jpg')">
+                                <ss-card class="card-1"><div class="menu-view-body">
+                                    <img style="width: 150px;" :src="require('./assets/face.gif')">
+                                </div></ss-card>
+                            </div>
+                            <div @contextmenu.prevent="showMenu($event, true)">
+                                <div class="space"></div>
+                                <ss-card class="card-1"><div class="menu-view-body">
+                                    <a class="just-img-b" href="https://www.pixiv.net/artworks/75558054">
+                                        图片来源，侵权请反馈仓库 issue
+                                    </a><br>
+                                    我只是想告诉你菜单是有毛玻璃效果的 XD
+                                </div></ss-card>
+                            </div>
+                        </div>
+                    </ss-card>
+                    <bc-menu
+                        :data="menuStatue"
+                        @close="closeMenu"
+                        name="demo-menu">
+                        <ul>
+                            <li icon="fa-solid fa-message" id="reply">回复</li>
+                            <li icon="fa-solid fa-clipboard" id="copy">复制</li>
+                            <li icon="fa-solid fa-trash-can" id="delete">撤回</li>
+                        </ul>
+                    </bc-menu>
+                </div>
+                <div class="code card-2"><code>
+                    {{ '<div @contextmenu.prevent="showMenu"></div>\n' }}
+                    {{ '<bc-menu :data="menuStatue" @close="closeMenu" name="demo-menu">\n' }}
+                    {{ '    <ul>\n' }}
+                    {{ '        <li icon="fa-solid fa-message" id="reply">回复</li>\n' }}
+                    {{ '        <li icon="fa-solid fa-clipboard" id="copy">复制</li>\n' }}
+                    {{ '        <li icon="fa-solid fa-trash-can" id="delete">撤回</li>\n' }}
+                    {{ '    </ul>\n' }}
+                    {{ '</bc-menu>\n' }}
+                    {{ '\n' }}
+                    {{ 'showMenu(event: Event, isMe = false) {\n' }}
+                    {{ '    const info = this.menu.set(\'demo-menu\', event as MouseEvent)\n' }}
+                    {{ '    info.list = !isMe ? [\'reply\', \'copy\'] : [\'delete\', \'copy\']\n' }}
+                    {{ '    this.menuStatue = info\n' }}
+                    {{ '},\n' }}
+                    {{ 'closeMenu(id: string) {\n' }}
+                    {{ '    this.menuStatue.show = false\n' }}
+                    {{ '    if(id) {\n' }}
+                    {{ '        this.toast.show({\n' }}
+                    {{ '            icon: \'fa-solid fa-circle-info\',\n' }}
+                    {{ '            text: `${id} 被点击了。`,\n' }}
+                    {{ '            autoClose: true\n' }}
+                    {{ '        })\n' }}
+                    {{ '    }\n' }}
+                    {{ '}' }}
+                </code></div>
+            </ss-card>
+        </ss-card>
     </bc-scrolltab>
     <bc-popbox></bc-popbox>
+    <bc-toast :time="5000"></bc-toast>
 </template>
 
 <script lang="ts">
+import { MenuStatue } from 'packages/dist/types'
 import { defineComponent, getCurrentInstance } from 'vue'
 
 export default defineComponent({
@@ -260,10 +420,66 @@ export default defineComponent({
     data () {
         return {
             popBox: getCurrentInstance()?.appContext
-                .config.globalProperties.$bcui['bc-popbox']
+                .config.globalProperties.$bcui['bc-popbox'],
+            toast: getCurrentInstance()?.appContext
+                .config.globalProperties.$bcui['bc-toast'],
+            menu: getCurrentInstance()?.appContext
+                .config.globalProperties.$bcui['bc-menu'],
+            menuStatue: {
+                show: false,
+                point: { x: 0, y: 0 }
+            } as MenuStatue
         }
     },
     methods: {
+        showMenu(event: Event, isMe = false) {
+            const info = this.menu.set('demo-menu', event as MouseEvent)
+            info.list = !isMe ? ['reply', 'copy'] : ['delete', 'copy']
+            this.menuStatue = info
+        },
+        closeMenu(id: string) {
+            this.menuStatue.show = false
+            if(id) {
+                this.toast.show({
+                    icon: 'fa-solid fa-circle-info',
+                    text: `${id} 被点击了。`,
+                    autoClose: true
+                })
+            }
+        },
+
+        showToast() {
+            const textList = [
+                ['fa-circle-info', '这是一条吐司消息。'],
+                ['fa-bread-slice', '香浓的吐司！'],
+                ['fa-gear', '这个吐司看起来有好好初始化哦。'],
+                ['fa-ghost', '¯\\_(ツ)_/¯'],
+                ['fa-utensils', '来个吐司？'],
+                ['fa-face-grin-stars', '吐司超好吃 ——'],
+                ['fa-circle-info', '这是个没有感情的吐司。'],
+                ['fa-heart', 'Also try LayUI!'],
+                ['fa-bread-slice', 'Toast'],
+                ['fa-circle-info', '不想说话。'],
+                ['fa-circle-info', 'SS!'],
+                ['fa-face-grin-squint-tears', '隔壁小孩都馋哭了。'],
+                ['fa-fire', '正在烤吐司。'],
+                ['fa-wrench', '超文本烤箱控制协议'],
+                ['fa-ban', '419 I\'m a Microwave Oven.']
+            ]
+            // 随机显示
+            const index = Math.floor(Math.random() * textList.length)
+            const toastInfo = {
+                icon: 'fa-solid ' + textList[index][0],
+                text: textList[index][1],
+                // 随机获取一个 true 或 false
+                autoClose: Math.random() > 0.5
+            }
+            this.toast.show(toastInfo)
+        },
+        clearToast() {
+            this.toast.clear()
+        },
+
         addPop() {
             const textList = [
                 '这是一条弹窗消息。',
@@ -360,5 +576,35 @@ code {
 .just-img-a {
     color: var(--color-font-2);
     font-size: 0.8rem;
+}
+.just-img-b {
+    color: var(--color-font);
+}
+
+.menu-view-bg {
+    background-image: url(https://lib.stapxs.cn/download/pic/desktopImg/75558054_p0.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.menu-view img.hd {
+    background: var(--color-card-2);
+    border-radius: 100%;
+    margin-right: 10px;
+    margin-top: 10px;
+    height: 2.2rem;
+    width: 2.2rem;
+}
+.menu-view > div {
+    align-items: center;
+    align-items: start;
+    margin: 5px 0;
+    display: flex;
+}
+.menu-view > div .space {
+    flex: 1;
+}
+.menu-view-body {
+    margin: -10px -20px !important;
 }
 </style>

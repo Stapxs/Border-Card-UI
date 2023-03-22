@@ -106,11 +106,16 @@ export default defineComponent({
 .tab-bar > li {
     transition: color 0.3s, border-bottom 0.3s;
     border-bottom: 3px solid transparent;
+    height: calc(1rem + 5px);
+    justify-content: center;
     list-style-type: none;
+    align-items: center;
     border-radius: 3px;
+    min-width: 30px;
     cursor: pointer;
     margin: 0 20px;
     padding: 10px;
+    display: flex;
 }
 .tab-bar > li span,
 .tab-bar > li svg {
