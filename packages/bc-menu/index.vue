@@ -43,7 +43,8 @@ export default defineComponent({
     },
     data() {
         return {
-            custonBody: undefined as any
+            custonBody: undefined as 
+                { id: string, icon: string | null, name: string }[] | undefined
         }
     },
     methods: {
@@ -133,7 +134,7 @@ export default defineComponent({
     text-overflow: ellipsis;
     transition: color .3s;
     white-space: nowrap;
-    font-size: 0.99rem;
+    font-size: 0.9rem;
     overflow: hidden;
 }
 .menu div.item:hover > a {

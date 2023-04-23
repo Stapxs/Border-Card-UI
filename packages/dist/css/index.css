@@ -8,6 +8,7 @@ html, body {
 }
 
 #app {
+    font-family: initial;
     height: 100%;
     width: 100%;
 }
@@ -70,4 +71,17 @@ button:active {
 }
 button:disabled {
     opacity: 0.4;
+}
+
+/* 输入框样式 */
+.ss-input {
+    background: var(--color-card-1);
+    border-radius: 7px;
+    padding: 0 10px;
+    font-size: 15px;
+    height: 35px;
+    border: 0;
+}
+.ss-input:focus {
+    outline: 2px solid var(--color-card-1);
 }

@@ -202,7 +202,7 @@
                         <li><code>templateValue</code> : 模板组件的 props 参数。</li>
                         <li><code>data</code> : 模板组件的附加传参，只有一个。</li>
                         <li><code>full</code> : 是否填充整个页面。如果为 <code>true</code>，则弹窗将会填充整个页面。</li>
-                        <li><code>button</code> : 关闭弹窗的按钮列表，包含以下内容：
+                        <li><code>button</code> : 弹窗的按钮列表，包含以下内容：
                             <ul>
                                 <li><code>fun</code> : 按钮的回调方法。</li>
                                 <li><code>text</code> : 按钮的文本。</li>
@@ -299,7 +299,7 @@
                 </code></div>
             </ss-card>
         </ss-card>
-        <h2 icon="fa-solid fa-square-caret-down">菜单</h2>
+        <h2 icon="fa-solid fa-ellipsis">菜单</h2>
         <ss-card title="菜单：bc-menu" icon>
             <p>
                 这是一个菜单组件，它可以在任意 DIV 下的任意位置显示一个菜单，同时支持打开时指定显示部分菜单项
@@ -403,6 +403,43 @@
                     {{ '        })\n' }}
                     {{ '    }\n' }}
                     {{ '}' }}
+                </code></div>
+            </ss-card>
+        </ss-card>
+        <h2 icon="fa-solid fa-square-caret-down">折叠面板</h2>
+        <ss-card title="折叠面板：bc-expander" icon>
+            <p>
+                这是一个一般路过的折叠面板，它没有什么特殊的。
+            </p>
+            <h3>可选参数</h3>
+            <ul>
+                <li><code>title</code> ：面板的标题</li>
+                <li><code>icon</code> ：面板的图标，使用 Font Awesome 名称。如果不填写值（或者是空字符串），将会显示为点前缀。</li>
+                <li><code>open</code> ：面板是否默认打开，不需要填写值（空字符串）。</li>
+            </ul>
+            <h3>示例</h3>
+            <ss-card class="card-1" title="view" icon="fa-solid fa-mountain">
+                <div class="view-space" style="display: flex;flex-direction: column;position: relative;">
+                    <bc-expander title="折叠面板" icon>
+                        <ss-card class="card-1" style="margin-top: 10px;">
+                            <div style="display: flex;align-items: center;"> 
+                                <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info"/>
+                                <span>这儿什么都没有！</span>
+                            </div>
+                        </ss-card>
+                    </bc-expander>
+                    <bc-expander title="折叠面板" icon open>
+                        <ss-card class="card-1" title="小知识" icon="fa-solid fa-circle-info">
+                            <span>折叠面板其实也由 ss-card 卡片构成，所以它同样拥有卡片标题的所有标题样式 XD</span>
+                        </ss-card>
+                    </bc-expander>
+                </div>
+                <div class="code card-2"><code>
+                    {{ '<bc-expander title="折叠面板" icon open>\n' }}
+                    {{ '    <ss-card class="card-1" title="小知识" icon="fa-solid fa-circle-info">\n' }}
+                    {{ '        <span>这儿什么都没有！</span>\n' }}
+                    {{ '    </ss-card>\n' }}
+                    {{ '</bc-expander>\n' }}
                 </code></div>
             </ss-card>
         </ss-card>

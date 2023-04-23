@@ -12,7 +12,7 @@
 </template>
   
 <script lang="ts">
-import { ToastInfo } from 'packages/dist/types'
+import { ToastInfo } from '../dist/types'
 import { defineComponent, getCurrentInstance } from 'vue'
 
 export default defineComponent({

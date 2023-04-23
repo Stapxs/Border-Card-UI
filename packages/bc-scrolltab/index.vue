@@ -45,6 +45,8 @@ export default defineComponent({
             const titles = body?.getElementsByTagName('h2')
             if(titles) {
                 for(let i = 0; i < titles.length; i++) {
+                    // 排除父级不是 body 的 h2 标签
+                    if(titles[i].parentElement?.id != 'bc-scrolltab-' + this.tabId) continue
                     const title = titles[i]
                     const bodyTop = body?.getBoundingClientRect().top || 0
                     const titleTop = title.getBoundingClientRect().top
@@ -65,17 +67,19 @@ export default defineComponent({
             const body = document.getElementById('bc-scrolltab-' + this.tabId)
             const titles = body?.getElementsByTagName('h2')
             if(titles) {
+                let number = 0
                 for(let i = 0; i < titles.length; i++) {
                     // 排除父级不是 body 的 h2 标签
                     if(titles[i].parentElement?.id != 'bc-scrolltab-' + this.tabId) continue
                     const title = titles[i]
-                    title.id = 'bc-scrolltab-title-' + this.tabId + '-' + i
+                    title.id = 'bc-scrolltab-title-' + this.tabId + '-' + number
                     this.titleList.push({
                         id: title.id,
                         text: title.innerText,
                         icon: title.getAttribute('icon') || undefined,
                         select: i == 0 ? true : undefined
                     })
+                    number ++
                 }
             }
         });

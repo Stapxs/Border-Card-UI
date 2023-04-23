@@ -39,7 +39,7 @@
 import Card from '../ss-card'
 
 import { defineComponent, getCurrentInstance } from 'vue'
-import { PopInfo } from 'packages/dist/types'
+import { PopInfo } from '../dist/types'
 
 export default defineComponent({
     name: "bc-popbox",

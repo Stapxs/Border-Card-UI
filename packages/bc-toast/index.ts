@@ -1,4 +1,4 @@
-import { ToastInfo } from 'packages/dist/types'
+import { ToastInfo } from '../dist/types'
 import { App, reactive } from 'vue'
 import Toast from './index.vue'
 

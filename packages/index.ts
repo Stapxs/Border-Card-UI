@@ -6,10 +6,11 @@ import Tab from './bc-tab'
 import PopBox from './bc-popbox'
 import Toast from './bc-toast'
 import Menu from './bc-menu'
+import Expander from './bc-expander'
 
 // 组件列表
 const components = [
-    Card, ScrollTab, Tab, PopBox, Toast, Menu
+    Card, ScrollTab, Tab, PopBox, Toast, Menu, Expander
 ]
 
 // 全局注册所有组件
@@ -27,7 +28,7 @@ const install = (app: App): void => {
 
 // 为组件提供 install 安装方法，供按需引入
 export {
-    Card, ScrollTab, Tab, PopBox, Toast, Menu
+    Card, ScrollTab, Tab, PopBox, Toast, Menu, Expander
 }
 
 export default {

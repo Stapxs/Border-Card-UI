@@ -7,6 +7,10 @@
                     <li :class="item.select ? 'select': ''" @click="tabSelect(index)">
                         <font-awesome-icon v-if="item.icon" :icon="item.icon"/>
                         <span v-else>{{ item.text }}</span>
+                        <div
+                            v-if="index + 1 == titleList.length"
+                            :style="getTabLineStyle(index)">
+                        </div>
                     </li>
                 </template>
             </ul>
@@ -36,7 +40,9 @@ export default defineComponent({
                 text: string,
                 icon?: string,
                 select?: boolean
-            }[]
+            }[],
+            nowTab: 0,
+            maxTab: 0
         }
     },
     methods: {
@@ -45,6 +51,7 @@ export default defineComponent({
                 item.select = false
             })
             this.titleList[index].select = true
+            this.nowTab = index
             // 显示对应的内容
             const body = document.getElementById('bc-tab-' + this.tabId)
             const titles = body?.children
@@ -61,6 +68,10 @@ export default defineComponent({
                     }
                 }
             }
+        },
+        getTabLineStyle(index: number) {
+            const x = index - this.nowTab
+            return `transform: translateX(calc(-${x}00% - 50px * ${x}))`
         }
     },
     mounted() {
@@ -104,10 +115,8 @@ export default defineComponent({
     flex: 1;
 }
 .tab-bar > li {
-    transition: color 0.3s, border-bottom 0.3s;
-    border-bottom: 3px solid transparent;
-    height: calc(1rem + 5px);
     justify-content: center;
+    flex-direction: column;
     list-style-type: none;
     align-items: center;
     border-radius: 3px;
@@ -120,11 +129,20 @@ export default defineComponent({
 .tab-bar > li span,
 .tab-bar > li svg {
     color: var(--color-font);
+    transition: color 0.3s;
     font-size: 0.9rem;
 }
 
-.tab-bar > li.select {
-    border-bottom: 3px solid var(--color-main);
+.tab-bar > li > div {
+    width: calc(100% + 10px);
+    margin-bottom: -10px;
+    transition: all .2s;
+    border-radius: 7px;
+    margin-top: 6px;
+    height: 3px;
+}
+.tab-bar > li:last-child > div {
+    background: var(--color-main);
 }
 .tab-bar > li.select span,
 .tab-bar > li.select svg {
