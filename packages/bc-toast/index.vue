@@ -91,6 +91,7 @@ export default defineComponent({
     display: flex;
 }
 .app-msg > div svg {
+    color: var(--color-font-r);
     fill: var(--color-font-r);
 }
 .app-msg > div > div:first-child > svg {

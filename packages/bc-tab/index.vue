@@ -62,6 +62,9 @@ export default defineComponent({
                         const title = titles[i] as HTMLElement
                         if(i == index) {
                             title.style.display = 'block'
+                            setTimeout(() => {
+                                title.scrollTo(0, 0)
+                            }, 100);
                         } else {
                             title.style.display = 'none'
                         }
@@ -86,6 +89,7 @@ export default defineComponent({
                         const title = titles[i] as HTMLElement
                         title.id = 'bc-tab-' + this.tabId + '-' + i
                         title.style.display = i == 0 ? 'bock' : 'none'
+                        title.style.scrollBehavior = 'smooth'
                         this.titleList.push({
                             id: title.id,
                             text: title.getAttribute('name') || '',

@@ -70,6 +70,122 @@
                 </code></div>
             </ss-card>
         </ss-card>
+        
+        <h2 icon="fa-solid fa-puzzle-piece">表单</h2>
+        <ss-card title="表单" icon>
+            <p>
+                表单不是一个单独的组件，它是一堆表单组件的集合。由于大部分表单组件都由纯 css 实现，为了防止 doc 累述全都放置在一起。<br>
+                大部分表单都不需要使用组件，它已经包含在全局 css 中。具体使用方法可以参考示例。
+            </p>
+            <h3>输入框：ss-input</h3>
+            <p>
+                输入框提供了 css 的基本样式和组件的版本。在组件版本中标题样式和卡片用法相同，
+                输入框值支持使用 <code>value</code> 参数传入或使用 <code>v-model</code> 进行双向绑定。
+            </p>
+            <h3>示例</h3>
+            <ss-card class="card-1" title="view" icon="fa-solid fa-mountain">
+                <ss-card :title="'用户信息' + (name != '' ? '（' + name + '）' : '')" icon>
+                    <div class="form-demo">
+                        <div>
+                            <span>昵称</span>
+                            <ss-input icon="fa-solid fa-user" type="text" v-model="name"></ss-input>
+                        </div>
+                        <div>
+                            <span>邮箱</span>
+                            <ss-input icon value="example@outlook.com"></ss-input>
+                        </div>
+                        <div>
+                            <span>公开显示邮箱</span>
+                            <label class="ss-switch">
+                                <input type="checkbox">
+                                <div><div></div></div>
+                            </label>
+                        </div>
+                        <div>
+                            <span>密码</span>
+                            <input type="password" class="ss-input">
+                        </div>
+                        <div>
+                            <span>性别</span>
+                            <label class="ss-radio">
+                                <input type="radio" name="f">
+                                <div><div></div></div>
+                            </label>
+                            <span>男</span>
+                            <label class="ss-radio">
+                                <input type="radio" name="f">
+                                <div><div></div></div>
+                            </label>
+                            <span>女</span>
+                            <label class="ss-radio">
+                                <input type="radio" name="f" checked>
+                                <div><div></div></div>
+                            </label>
+                            <span>其他</span>
+                        </div>
+                        <div>
+                            <span>启用版本</span>
+                            <select class="ss-select">
+                                <option value="1">1.0</option>
+                                <option value="2">2.0</option>
+                                <option value="0">rolling</option>
+                            </select>
+                        </div>
+                    </div>
+                </ss-card>
+                <div class="code card-2"><code>
+                    {{'    <ss-card title="用户信息" icon>\n' }}
+                    {{'    <div class="form-demo">\n' }}
+                    {{'        <div>\n' }}
+                    {{'            <span>昵称</span>\n' }}
+                    {{'            <input type="text" class="ss-input" value="林小槐">\n' }}
+                    {{'        </div>\n' }}
+                    {{'        <div>\n' }}
+                    {{'            <span>邮箱</span>\n' }}
+                    {{'            <ss-input icon v-model="mail"></ss-input>\n' }}
+                    {{'        </div>\n' }}
+                    {{'        <div>\n' }}
+                    {{'            <span>公开显示邮箱</span>\n' }}
+                    {{'            <label class="ss-switch">\n' }}
+                    {{'                <input type="checkbox">\n' }}
+                    {{'                <div><div></div></div>\n' }}
+                    {{'            </label>\n' }}
+                    {{'        </div>\n' }}
+                    {{'        <div>\n' }}
+                    {{'            <span>密码</span>\n' }}
+                    {{'            <ss-input icon="fa-solid fa-key" type="password"></ss-input>\n' }}
+                    {{'        </div>\n' }}
+                    {{'        <div>\n' }}
+                    {{'            <span>性别</span>\n' }}
+                    {{'            <label class="ss-radio">\n' }}
+                    {{'                <input type="radio" name="f">\n' }}
+                    {{'                <div><div></div></div>\n' }}
+                    {{'            </label>\n' }}
+                    {{'            <span>男</span>\n' }}
+                    {{'            <label class="ss-radio">\n' }}
+                    {{'                <input type="radio" name="f">\n' }}
+                    {{'                <div><div></div></div>\n' }}
+                    {{'            </label>\n' }}
+                    {{'            <span>女</span>\n' }}
+                    {{'            <label class="ss-radio">\n' }}
+                    {{'                <input type="radio" name="f" checked>\n' }}
+                    {{'                <div><div></div></div>\n' }}
+                    {{'            </label>\n' }}
+                    {{'            <span>其他</span>\n' }}
+                    {{'        </div>\n' }}
+                    {{'        <div>\n' }}
+                    {{'            <span>启用版本</span>\n' }}
+                    {{'            <select class="ss-select">\n' }}
+                    {{'                <option value="1">1.0</option>\n' }}
+                    {{'                <option value="2">2.0</option>\n' }}
+                    {{'                <option value="0">rolling</option>\n' }}
+                    {{'            </select>\n' }}
+                    {{'        </div>\n' }}
+                    {{'    </div>\n' }}
+                    {{'</ss-card>' }}
+                </code></div>
+            </ss-card>
+        </ss-card>
         <h2 icon="fa-solid fa-scroll">滚动标签卡</h2>
         <ss-card title="滚动标签卡：bc-scrolltab" icon>
             <ss-card class="card-1">
@@ -139,12 +255,6 @@
             <h3>示例</h3>
             <ss-card class="card-1" title="view" icon="fa-solid fa-mountain">
                 <div class="view-space">
-                    <bc-tab title="设置">
-                        <ss-card name="账号">这是账号设置</ss-card>
-                        <ss-card name="界面">这是界面设置</ss-card>
-                        <ss-card name="功能">这是功能设置</ss-card>
-                        <ss-card name="高级">这是高级设置</ss-card>
-                    </bc-tab>
                     <div style="display: flex;">
                         <bc-tab style="margin-top: 20px;flex: 1;">
                             <div name="成员"></div>
@@ -155,6 +265,53 @@
                             <div icon="fa-solid fa-heart"></div>
                         </bc-tab>
                     </div>
+                    <bc-tab title="设置">
+                        <div name="账号" style="height: 300px;overflow-y: scroll;">
+                            <ss-card>
+                                <div style="display: flex;align-items: center;"> 
+                                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-lightbulb"/>
+                                    <span>在 Tab 切换的时候，如果 Tab 下的内容可以滚动；bc-tab 将会把内容滚回顶部（如果在这之前滚动到了其他位置）。</span>
+                                </div>
+                            </ss-card>
+                            <ss-card style="margin-top: 10px">
+                                <ss-card class='card-1'>
+                                    <div style="display: flex;align-items: center;">
+                                        <img src="https://secure.gravatar.com/avatar/75c55a45cadac8669a1c5e4943cda5ce?s=330&r=G" class="card-2" style="width: 3rem;height: 3rem;border-radius: 100%;">
+                                        <div style="display: flex;flex-direction: column;margin-left: 20px;">
+                                            <span style="font-weight: bold;color: var(--color-main);">{{ name }}</span>
+                                            <span style="font-size:0.8rem;color: var(--colr-font-2);">example@outlook.com</span>
+                                        </div>
+                                    </div>
+                                </ss-card>
+                                <ss-card style="margin-top: 10px" class="card-1" :title="'用户信息' + (name != '' ? '（' + name + '）' : '')">
+                                    <div class="form-demo" style="margin: 0">
+                                        <div>
+                                            <span>昵称</span>
+                                            <ss-input classIn="card-2" icon v-model="name"></ss-input>
+                                        </div>
+                                        <div>
+                                            <span>邮箱</span>
+                                            <ss-input classIn="card-2" icon value="example@outlook.com"></ss-input>
+                                        </div>
+                                        <div>
+                                            <span>公开显示邮箱</span>
+                                            <label class="ss-switch">
+                                                <input type="checkbox">
+                                                <div class="card-2"><div></div></div>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <span>密码</span>
+                                            <ss-input classIn="card-2" icon type="password" value="123"></ss-input>
+                                        </div>
+                                    </div>
+                                </ss-card>
+                            </ss-card>
+                        </div>
+                        <ss-card name="界面">这是界面设置</ss-card>
+                        <ss-card name="功能">这是功能设置</ss-card>
+                        <ss-card name="高级">这是高级设置</ss-card>
+                    </bc-tab>
                 </div>
                 <div class="code card-2"><code>
                     {{ '<bc-tab title="设置">\n' }}
@@ -465,7 +622,8 @@ export default defineComponent({
             menuStatue: {
                 show: false,
                 point: { x: 0, y: 0 }
-            } as MenuStatue
+            } as MenuStatue,
+            name: '林小槐'
         }
     },
     methods: {
@@ -628,7 +786,7 @@ code {
     background: var(--color-card-2);
     border-radius: 100%;
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 15px;
     height: 2.2rem;
     width: 2.2rem;
 }
@@ -643,5 +801,42 @@ code {
 }
 .menu-view-body {
     margin: -10px -20px !important;
+}
+
+.form-demo {
+    margin: 0 20px;
+}
+.form-demo > div {
+    transition: background .3s;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 7px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    display: flex;
+}
+.form-demo > div:hover {
+    /* background: var(--color-card-1); */
+}
+.form-demo > div > span {
+    font-size: 0.9rem;
+}
+.form-demo > div > span:first-child {
+    font-size: 0.9rem;
+    display: block;
+    flex: 1;
+}
+.form-demo > div > label.ss-switch {
+    --switch-dot-border: 4px;
+    --switch-dot-margin: 9px;
+    --switch-height: 30px;
+    min-width: 50px;
+}
+.form-demo > div > label.ss-radio {
+    --radio-size: 12px;
+    margin-right: 5px;
+}
+.form-demo > div > label.ss-radio:not(:nth-child(2)) {
+    margin-left: 15px;
 }
 </style>
