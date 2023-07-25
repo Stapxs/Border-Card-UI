@@ -1,0 +1,38 @@
+# 在主分支上构建
+name: build
+on:
+  push: # push 触发
+    branches:
+      - main
+
+jobs:
+  build-pages:
+    name: 构建文档
+    runs-on: ubuntu-latest
+    steps:
+    # 拉取代码
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        persist-credentials: false
+    # 设置 Node.js
+    - name: Load Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+    # 更新依赖
+    - name: Install
+      run: yarn
+    # 构建
+    - name: Build
+      run: yarn build
+      env:
+        NODEJS_ENV: github-actions
+
+    # 部署 Web 版本
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        token: ${{ secrets.ACCESS_TOKEN }}
+        branch: gh-pages
+        folder: dist

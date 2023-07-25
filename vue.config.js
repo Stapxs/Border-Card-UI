@@ -2,6 +2,9 @@ const path = require('path')
 const { defineConfig } = require('@vue/cli-service')
 
 module.exports = defineConfig({
+    publicPath: process.env.NODEJS_ENV === 'github-actions'
+    ? '/Border-Card-UI/'
+    : undefined,
     transpileDependencies: true,
     pages: {
         index: {
