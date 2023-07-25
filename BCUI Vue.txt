@@ -9,18 +9,17 @@
 表单元素
 [ ]	ss-buttton				按钮
 								>> 按钮分为圆角和腰圆的样式，可以附加 SVG 的按钮图标
-[ ]	ss-input					输入框
+[x]	ss-input					输入框
 								>> 输入框可以附加 SVG 的输入框头部图标
 [ ]	ss-range					滑动条
 								>> 滑动条可以选择显示是否显示移动按钮（目前有 BUG）
-[ ]	ss-switch				开关
+[x]	ss-switch				开关
 								>> 开关尺寸可以自定
-[ ]	ss-radio					单选按钮
+[x]	ss-radio					单选按钮
 [ ]	ss-select				下拉选择框（这个还没实现）
 
 组件
 [ ]	bc-option				设置项：Stapxs QQ Lite 2 的设置项组件，和 1 的不太一样
-[ ]	bc-listcard				列表卡片：Stapxs Tool Box 的卡片列表样式
 [x]	bc-toast				吐司通知：Stapxs QQ Lite 2 的应用通知样式
 [x]	bc-popbox				弹窗：Stapxs QQ Lite 2 的通用弹窗样式
 [x]	bc-tab					切换标签卡：Stapxs Tool Box 的切换标签卡样式
