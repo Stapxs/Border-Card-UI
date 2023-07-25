@@ -1,0 +1,88 @@
+/* 全局样式 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 覆盖样式 */
+.ss-switch > div {
+    background: var(--color-card-2);
+}
+
+/* 页面样式 */
+.main-body {
+    display: flex;
+    height: calc(100% - 20px);
+}
+.main-body > div:first-child {
+    background: var(--color-card);
+    min-width: 250px;
+    border-radius: 7px;
+    height: fit-content;
+    max-height: calc(100vh - 40px);
+    padding: 20px;
+    position: sticky;
+    top: 0;
+
+    transition: all .3s;
+}
+.main-body > div:first-child a,
+.main-body > div:first-child > div:first-child {
+    padding: 0 15px;
+    line-height: 45px;
+    display: block;
+    border-radius: 7px;
+    color: var(--color-font);
+    transition: background .3s, color .3s;
+    text-decoration: none;
+}
+.main-body > div:first-child a:hover {
+    background: var(--color-main);
+    color: var(--color-font-r);
+}
+.main-body > div:first-child > div:first-child {
+    line-height: 50px;
+    background: var(--color-main);
+    color: var(--color-font-r);
+    border-radius: 7px 7px 0 0;
+    margin: -20px -20px 20px -20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.main-body > div:first-child > div:first-child > svg {
+    height: 1.1rem;
+    fill: var(--color-font-r);
+    margin-left: 20px;
+    cursor: pointer;
+}
+.main-body > div:first-child > div:first-child > div {
+    flex: 1;
+}
+.main-body > div:first-child > div:last-child {
+    overflow-y: scroll;
+    margin: -20px -27px -20px -20px;
+    padding: 10px;
+}
+.main-body > div:last-child {
+    flex: 1;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    color: var(--color-font);
+}
+.main-body > div:last-child > div.ss-card > div.body {
+    padding: 0 15px;
+}
+.main-body > div:last-child > div.ss-card > div.body p {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+}
+.main-body > div:last-child > div.ss-card > div.body > header {
+    margin: 10px 0;
+    padding: 0;
+}
+.main-body > div:last-child > div.ss-card > div.body > header > i {
+    color: var(--color-main);
+}
+.main-body > div:last-child > div.ss-card > div.body > header > span {
+    color: var(--color-main);
+}

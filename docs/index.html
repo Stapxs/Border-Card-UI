@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Border Card UI</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#313D43">
+
+    <!-- 附加依赖 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/prism-light.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css">
+    <!-- BCUI -->
+    <link rel="stylesheet" href="/css/color-dark.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- 当前页面样式 -->
+    <link rel="stylesheet" href="/docs/index.css">
+</head>
+
+<body style="background: var(--color-bg);color: var(--color-font)">
+<!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background: var(--color-card);margin-bottom: 20px;">
+    <div class="container-lg" style="padding-left: 30px;">
+        <a class="navbar-brand" href="/">
+            Border Card UI
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav mr-auto">
+                <a class="nav-item nav-link " href="index.html">主页</a>
+                <a class="nav-item nav-link " href="doc.html">文档</a>
+                <a class="nav-item nav-link " href="use.html">使用</a>
+            </div>
+        </div>
+    </div>
+</nav> -->
+<div style="display: flex;flex-direction: column;height: calc(100vh - 76px);">
+    <div style="flex: 1;">
+        <div style="display: flex;flex-direction: row;margin-bottom: 20px;">
+            <div class="ss-card wel-card">
+                <div>
+                    <div class="wel-icon">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </div>
+                    <span id="wel-title">Border Card UI</span><br>
+                    <span id="version">
+                        Version - 1.7
+                    </span><br>
+                </div>
+                <div id="wel-bl-pad" style="position: relative;pointer-events:none;">
+                    <svg style="opacity: 1;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info" class="svg-inline--fa fa-info fa-w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+                        <path fill="currentColor" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+                    </svg>
+                    <svg style="margin-left: calc(-70% - 240px);opacity: 1;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info" class="svg-inline--fa fa-info fa-w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+                        <path fill="currentColor" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+                    </svg>
+                    <svg style="margin-left: calc(-60% - 160px);" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info" class="svg-inline--fa fa-info fa-w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+                        <path fill="currentColor" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+                    </svg>
+                    <svg style="margin-left: calc(-40% - 80px);" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info" class="svg-inline--fa fa-info fa-w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+                        <path fill="currentColor" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+                    </svg>
+                    <svg style="margin-left: -30%;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info" class="svg-inline--fa fa-info fa-w-6" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+                        <path fill="currentColor" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div style="display: flex;flex: 1;flex-direction: column;margin-left: 20px;">
+                <div class="ss-card main-card">
+                    <div>
+                        <svg style="width: 20px;margin-left: 30%; margin-top: 10%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347 443.03"><path fill="currentColor" d="M172,3S141.5,222.5,0,222c142.5-.5,172,218,172,218s43.5-217.5,175-218C215.5,221.5,172,3,172,3Z"></path></svg>
+                        <svg style="width: 20px;margin-left: 55%; margin-top: 00%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347 443.03"><path fill="currentColor" d="M172,3S141.5,222.5,0,222c142.5-.5,172,218,172,218s43.5-217.5,175-218C215.5,221.5,172,3,172,3Z"></path></svg>
+                        <svg style="width: 20px;margin-left: 90%; margin-top: 20%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347 443.03"><path fill="currentColor" d="M172,3S141.5,222.5,0,222c142.5-.5,172,218,172,218s43.5-217.5,175-218C215.5,221.5,172,3,172,3Z"></path></svg>
+                        <svg style="width: 20px;margin-left: 70%; margin-top: 30%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347 443.03"><path fill="currentColor" d="M172,3S141.5,222.5,0,222c142.5-.5,172,218,172,218s43.5-217.5,175-218C215.5,221.5,172,3,172,3Z"></path></svg>
+                        <svg style="width: 20px;margin-left: 05%; margin-top: 25%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 347 443.03"><path fill="currentColor" d="M172,3S141.5,222.5,0,222c142.5-.5,172,218,172,218s43.5-217.5,175-218C215.5,221.5,172,3,172,3Z"></path></svg>
+                        <svg style="margin-left: 010%; margin-top: 05%;width: 3px;transform: rotate(35deg);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 270"><rect fill="currentColor" x="0.5" y="0.5" width="12" height="269"></rect></svg>
+                        <svg style="margin-left: 070%; margin-top: 15%;width: 3px;transform: rotate(35deg);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 270"><rect fill="currentColor" x="0.5" y="0.5" width="12" height="269"></rect></svg>
+                        <svg style="margin-left: 100%; margin-top: 00%;width: 3px;transform: rotate(35deg);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 270"><rect fill="currentColor" x="0.5" y="0.5" width="12" height="269"></rect></svg>
+                        <svg style="margin-left: 040%; margin-top: 30%;width: 3px;transform: rotate(35deg);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 270"><rect fill="currentColor" x="0.5" y="0.5" width="12" height="269"></rect></svg>
+                        <svg style="margin-left: 095%; margin-top: 30%;width: 3px;transform: rotate(35deg);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 270"><rect fill="currentColor" x="0.5" y="0.5" width="12" height="269"></rect></svg>
+                        <svg style="margin-left: 040%; margin-top: 00%;width: 3px;transform: rotate(35deg);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 270"><rect fill="currentColor" x="0.5" y="0.5" width="12" height="269"></rect></svg>
+                    </div>
+                    <div>
+                        <div class="title-card">
+                            <div id="main-title">                    
+                                <svg style="width: 40px;margin: 20px auto;display: block;" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="fire-alt" class="svg-inline--fa fa-fire-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M323.56 51.2c-20.8 19.3-39.58 39.59-56.22 59.97C240.08 73.62 206.28 35.53 168 0 69.74 91.17 0 209.96 0 281.6 0 408.85 100.29 512 224 512s224-103.15 224-230.4c0-53.27-51.98-163.14-124.44-230.4zm-19.47 340.65C282.43 407.01 255.72 416 226.86 416 154.71 416 96 368.26 96 290.75c0-38.61 24.31-72.63 72.79-130.75 6.93 7.98 98.83 125.34 98.83 125.34l58.63-66.88c4.14 6.85 7.91 13.55 11.27 19.97 27.35 52.19 15.81 118.97-33.43 153.42z"></path></svg>
+                                <div><i>B</i>order <i>C</i>ard <i>U</i>ser <i>I</i>nterface</div>
+                                <a>一个简单轻便的由卡片构成的界面设计风格</a>
+                            </div>  
+                        </div>
+                        <div id="main-more">
+                            <div onclick="home_click('doc')">
+                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                                <span>文档</span>
+                            </div>
+                            <div onclick="home_click('use')">
+                                <i class="fa fa-code" aria-hidden="true"></i>
+                                <span>使用</span>
+                            </div>
+                            <div onclick="home_click('download')">
+                                <i class="fa fa-angle-double-down" aria-hidden="true"></i>
+                                <span>下载</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ss-card" style="margin-bottom: 20px;flex: 1;">
+            <header><div></div>关于 Border Card UI</header>
+            <div class="ss-card about-top">
+                还是做前端页面什么的最有趣了（主修后端的 SS 如是说）
+            </div>
+            <div class="about-text">
+                <i>
+                    这是 SS ——，Border Card UI 是 SS 第一个使用的纯扁平化设计风格，它也完全出自意外（不是），并且现在已经扩展到了你能看见的所有来自我的界面！（我称之为 BCUI 化 x）
+                    在 2020 年的高三，我闲来无事买了本 WPF 开发的教程，便开始从简陋的控制台编程跨向了现代化的 UI 程序开发（其实在这之前我还学了 Windows API）
+                    于是我想着要用什么东西练练手，于是 SS Tool Box 就出现了！你可以在 <a href="https://blog.stapxs.cn/archives/53">这儿</a> 看到更多和 SS Tool Box 相关的内容。
+                </i>
+                <i>
+                    SSTB 经历了好几版的更新，还有好几版的界面设计更新，界面有些是自己设计的，有些可能直接来自 UI 库。
+                    总之，在 2.0 的重置版里，我设计了一个全新的 UI，它就是现在的 Border Card UI。
+                    为什么叫 Border Card UI？ 因为它在 WPF 中最早的实现方式依靠了大量的 Border 控件，于是我脑子一抽，就用 Border 做名字了 XD
+                </i>
+                <i>
+                    Border Card UI 并不是一个全部自主设计的风格，它来自于早期 SSTB 的卡片、TMore 的界面设计（主要来源）、PCL2 的动画设计（主要来源）甚至在新版本中还有 Windows 11 的新元素。
+                    Border Card UI 是个设计风格，它指定了一个卡片化、扁平、优雅的设计风格，并且尝试将它迁移到任何有界面的平台上。总而言之，这是个设计风格，只有基础的要求和无限的可能。
+                </i>
+                <i>
+                    还是那句熟悉的话：
+                    它有着并不是特别完美的设计，有着并不是特别规范的代码，有着看起来非常鸡肋的彩蛋。
+                    但是这些都不重要，重要的是，它是 SS 第一个用来学习和练习的东西。
+                </i>
+                <i style="text-align: right;">
+                    林槐出品，必属稽品
+                </i>
+            </div>
+        </div>
+        <div class="ss-card" style="margin-bottom: 20px;flex: 1;">
+            <header><div></div>快速开始</header>
+            <div class="about-text">
+                <i>
+                    这儿仅包括 Border Card UI For Web 的网页端实现使用方式，如果想看看其他平台，去 <a href="docs/use.html">使用</a> 界面查看吧。
+                </i>
+                <div class="info-body-title" style="margin-left: 20px;">
+                    <i class="fa fa-caret-right" aria-hidden="true"></i><i>引入文件</i>
+                </div>
+                <i>
+                    你需要引入一些 CSS 和 JS 文件来快速将 BCUI 应用在你的页面中，这不是件难事。
+                </i>
+                <div class="ss-card" style="background-color: var(--color-card-1);margin: 20px 30px;">
+                    <header><i class="fa fa-file-code-o" aria-hidden="true"></i>CSS 引入内容</header>
+                    <pre class="language-html" style="margin:0 !important;">
+                        <code class="language-html">&lt;!-- 这是配色文件，如果你想自定义它，可以用本地文件替代；
+但是在你使用本地文件的时候，你必须同时准备一份 color-dark.css。
+当然如果你想优先加载暗黑主题，也可以替换为 /css/color-dark.css。 --&gt;
+&lt;link rel="stylesheet" href="/css/color-light.css"&gt;
+&lt;!-- 这是主样式 --&gt;
+&lt;link rel="stylesheet" href="/css/style.css"&gt;</code>
+                    </per>
+                </div>
+                <div class="ss-card" style="background-color: var(--color-card-1);margin: 20px 30px;">
+                    <header><i class="fa fa-file-code-o" aria-hidden="true"></i>JS 引入内容</header>
+                    <pre class="language-html" style="margin:0 !important;">
+                        <code class="language-html">&lt;!-- 这是主功能 --&gt;
+&lt;script src="/js/main.js"&gt;&lt;/script&gt;
+&lt;!-- 这个 JS 提供自动暗黑模式的功能，如果你不需要它，可以不使用。 --&gt;
+&lt;script src="/js/auto-theme.js"&gt;&lt;/script&gt;</code>
+                    </per>
+                </div>
+                <div class="info-body-title" style="margin-left: 20px;">
+                    <i class="fa fa-caret-right" aria-hidden="true"></i><i>开始使用</i>
+                </div>
+                <i>
+                    接下来就完成啦，去 <a href="doc.html"> 文档</a> 界面找些控件试一试吧！
+                </i>
+                <div class="info-body-title" style="margin-left: 20px;">
+                    <i class="fa fa-caret-right" aria-hidden="true"></i><i>小尾巴</i>
+                </div>
+                <i>
+                    BCUI For Web 的实现还非常年轻，这意味着它目前非常简陋和不成熟，如果你在使用控件库的时候遇到了问题以及 BUG，请及时在 <a href="https://github.com/Stapxs/Stapxs-Web-API/issues">Github Issues</a> 告诉我！
+                    如果你有关于新的控件和布局的建议，也可以在 Issues 告诉我！BCUI 现在需要更加完善！
+                </i>
+            </div>
+        </div>
+        <div style="display: flex;margin-top: 20px;height: 310px;margin-bottom: 20px;">
+            <div class="ss-card history" style="width: 60%;margin-right: 20px;">
+                <header><div></div>更新记录</header>
+                <div class="scroll-top" style="display: none;"></div>
+                <div id="history-body" onscroll="scrollDiv(this);">
+                    <div id="history-wait">
+                        <svg id="history-load" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cog" class="svg-inline--fa fa-cog fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"></path></svg>
+                        <br><i id="history-err">少女祈祷中</i>
+                    </div>
+                </div>
+            </div>
+            <div class="ss-card bcd-about" style="flex: 1;">
+                <div>
+                    <div>
+                        <div class="bcd-body" style="width: 45%;display: flex;justify-content: flex-end;border-radius: 0 5px 0 0;">
+                            <div style="background:var(--color-card-2);border-radius: 16px;width: 25%;margin: 5px 0 5px 5px;"></div>
+                            <div style="background: var(--color-card-2);border-radius: 100%;width: 7px;margin: 5px 8px 5px 5px;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bcd-body" style="width: 20%;margin-right: 25%;"></div>
+                        <div class="bcd-body" style="width: 55%;display: flex;justify-content: flex-end;">
+                            <div style="background: var(--color-card-2);width: calc(25% + 26px);margin-right: 5px;border-radius: 5px 5px 0 0;display: flex;justify-content: flex-end;">
+                                <div style="background:var(--color-main);border-radius: 100%;width: 7px;margin: 10px 5px 0 5px;"></div>
+                                <div style="background:var(--color-card-1);border-radius: 16px;width: calc(100% - 25px);margin: 10px 7px 0 0;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bcd-body" style="width: 10%;margin-right: 20%;"></div>
+                        <div class="bcd-body" style="width: 40%;display: flex;justify-content: flex-end;">
+                            <div style="background: var(--color-card-2);width: calc(35% + 25px);margin-right: 5px;display: flex;justify-content: flex-end;">
+                                <div style="background: var(--color-card-1);border-radius: 16px;width: calc(100% - 14px);height: calc(100% - 10px);margin-top: 2.5px;margin-right: 7px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bcd-body" style="width: 15%;margin-right: 40%;"></div>
+                        <div class="bcd-body" style="width: 35%;display: flex;justify-content: flex-end;">
+                            <div style="background: var(--color-card-2);width: calc(40% + 25px);margin-right: 5px;border-radius: 0 0 5px 5px;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bcd-body" style="width: 43%;"></div>
+                    </div>
+                    <div>
+                        <div class="bcd-body" style="width: 13%;margin-right: 20%;"></div>
+                        <div class="bcd-body" style="width: 49%;"></div>
+                    </div>
+                    <div>
+                        <div class="bcd-body" style="width: 57%;"></div>
+                    </div>
+                    <div>
+                        <div class="bcd-body" style="width: 17%;margin-right: 26%;"></div>
+                        <div class="bcd-body" style="width: 52%;"></div>
+                    </div>
+                    <div>
+                        <div class="bcd-body" style="width: 8%;margin-right: 8%;"></div>
+                        <div class="bcd-body" style="width: 60%;">
+                            <div style="background: var(--color-card-2);width: calc(100% - 7px);height: calc(100% - 7px);margin-top: 7px;border-radius: 0 7px 0 0;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bcd-body" style="width: 40%;border-radius: 0 0 7px 0;">
+                            <div style="background: var(--color-card-2);width: calc(100% - 7px);height: calc(100% - 7px);margin-right: 7px;border-radius: 0 0 7px 0;"></div>
+                        </div>
+                    </div>
+                </div>
+                <span>Border Card UI For Web</span><br>
+                <a>Version - 1.7</a>
+            </div>
+        </div>
+    </div>
+
+
+<footer>
+    <div class="ss-card">
+        <header>Border Card UI
+            <span>
+                For Web
+            </span>
+        </header>
+        <span>Copyright © 2020 - 2021 Stapx Steve [ 林槐 ]</span><br>
+        <div style="float: right;margin-top: -44px;">
+            <svg style="width: 50px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 274 259"><g id="圖層_2" data-name="圖層 2"><g id="本体"><rect class="cls-1" x="19" y="167" width="28" height="28"/><rect class="cls-1" x="62" y="181" width="14" height="14"/><rect class="cls-1" x="89" y="163" width="14" height="14"/><rect class="cls-1" x="62" y="63" width="14" height="14"/><rect class="cls-1" x="82" y="85" width="14" height="14"/><rect class="cls-1" x="114" y="66" width="28" height="28"/><polygon class="cls-1" points="112.54 153.5 33.5 153.5 33.5 106.5 155 106.5 155.5 106.5 159.37 106.5 159.46 207.5 159.5 254.36 159.5 254.46 144.5 254.47 144.5 254.37 144.5 238.5 116.5 238.5 116.5 254.4 116.5 254.5 112.63 254.5 112.63 254.4 3.54 254.5 3.5 207.64 112.59 207.54 112.54 153.5"/><polygon class="cls-1" points="183.51 114.5 198.5 114.5 198.5 130.5 198.5 131.49 269.5 131.42 269.48 103.5 219.5 103.55 219.5 85.47 269.5 85.42 269.5 84.5 269.5 36.42 269.5 20.5 269.48 20.5 251.5 20.5 251.5 5.52 251.5 5.5 232.5 5.5 232.5 5.53 183.5 5.58 183.53 36.5 232.5 36.45 232.5 54.53 219.5 54.55 219.5 54.5 182.5 54.5 182.5 114.5 183.51 114.5"/><rect class="cls-1" x="242" y="153" width="28" height="28"/><rect class="cls-1" x="183" y="240" width="14" height="14"/><rect class="cls-1" x="204" y="166" width="26" height="14"/><rect class="cls-1" x="183" y="190" width="14" height="41"/><polygon class="cls-1" points="269.5 189.5 269.5 230.62 245.62 254.5 203.5 254.5 203.5 189.5 269.5 189.5"/><rect class="cls-1" width="8" height="8"/><rect class="cls-1" x="266" y="251" width="8" height="8"/><polygon class="cls-1" points="3.5 33.16 30.77 5.5 50.5 5.5 145.5 5.5 145.5 19.5 159.5 19.5 159.5 52.5 50.5 52.5 50.5 153.5 3.5 153.5 3.5 52.5 3.5 33.16"/></g></g></svg>        </div>
+    </div>
+    <div></div>
+</footer>
+</div>
+</body>
+<script src="/docs/prism.js"></script>
+<script src="/docs/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+<script src="/js/auto-theme.js"></script>
+</html>
