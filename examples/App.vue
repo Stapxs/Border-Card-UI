@@ -14,7 +14,7 @@
                     但是它依旧可以通过这儿使用！</span>
                 </div>
             </ss-card>
-            <iframe src="docs"></iframe>
+            <iframe src="docs/index.html"></iframe>
         </div>
     </bc-tab>
 </template>
