@@ -8,7 +8,7 @@ function changeColor(type) {
         fist_load = false
     }
     // 切换颜色
-    let match_list = ['color-.*\.css', 'prism-.*\.css']
+    let match_list = ['color-.*\.css', 'prism-.*\.css', 'append-.*\.css']
     const css_list = document.getElementsByTagName("link")
     for(let i=0; i<css_list.length; i++) {
         name = css_list[i].href
