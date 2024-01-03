@@ -365,9 +365,6 @@ pre > code {
         font-family: 'Fira Code VF', monospace !important;
     }
 }
-pre > code span {
-    background: transparent !important;
-}
 pre[class*=language-]>code {
     border-left: 0px solid var(--color-main) !important;
     background-color: var(--color-card-2) !important;
