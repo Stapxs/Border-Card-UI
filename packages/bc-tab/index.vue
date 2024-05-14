@@ -4,7 +4,7 @@
             <ul class="tab-bar">
                 <span v-if="title">{{ title }}</span>
                 <template v-for="(item, index) in titleList" :key="item.id">
-                    <li :class="item.select ? 'select': ''" @click="tabSelect(index)">
+                    <li :class="item.select ? 'select': ''" @click="tabSelect(index)" :id="'bc-tab-' + tabId + '-' + index">
                         <font-awesome-icon v-if="item.icon" :icon="item.icon"/>
                         <span v-else>{{ item.text }}</span>
                         <div
@@ -74,7 +74,7 @@ export default defineComponent({
         },
         getTabLineStyle(index: number) {
             const x = index - this.nowTab
-            return `transform: translateX(calc(-${x}00% - 50px * ${x}))`
+            return `transform: translateX(calc(-${x}00% - (var(--bc-tab-margin) * 2 + 10px) * ${x}))`
         }
     },
     mounted() {
@@ -99,7 +99,7 @@ export default defineComponent({
                     }
                 }
             }
-        });
+        })
     }
 })
 </script>
@@ -109,6 +109,8 @@ export default defineComponent({
     margin-bottom: 10px;
 }
 .tab-bar {
+    --bc-tab-margin: 20px;
+
     margin: -17px -20px -17px -40px;
     justify-content: center;
     align-items: center;
@@ -119,6 +121,7 @@ export default defineComponent({
     flex: 1;
 }
 .tab-bar > li {
+    margin: 0 var(--bc-tab-margin);
     justify-content: center;
     flex-direction: column;
     list-style-type: none;
@@ -126,7 +129,6 @@ export default defineComponent({
     border-radius: 3px;
     min-width: 30px;
     cursor: pointer;
-    margin: 0 20px;
     padding: 10px;
     display: flex;
 }

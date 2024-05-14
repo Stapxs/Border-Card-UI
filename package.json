@@ -2,7 +2,7 @@
   "name": "vue3-bcui",
   "description": "Border Card UI for Vue3.",
   "author": "Stapx Steve [ 林槐 ]",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
