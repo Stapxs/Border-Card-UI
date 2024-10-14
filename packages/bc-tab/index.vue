@@ -1,18 +1,19 @@
 <template>
     <div class="tab-main">
         <Card>
-            <ul class="tab-bar">
+            <ul class="tab-bar" v-if="$slots.default">
                 <span v-if="title">{{ title }}</span>
-                <template v-for="(item, index) in titleList" :key="item.id">
-                    <li :class="item.select ? 'select': ''" @click="tabSelect(index)" :id="'bc-tab-' + tabId + '-' + index">
-                        <font-awesome-icon v-if="item.icon" :icon="item.icon"/>
-                        <span v-else>{{ item.text }}</span>
-                        <div
-                            v-if="index + 1 == titleList.length"
-                            :style="getTabLineStyle(index)">
-                        </div>
-                    </li>
-                </template>
+                <TransitionGroup name="tabar">
+                    <template v-for="(child, index) in $slots.default().filter(item => item.props)" :key="'bc-tab-' + this.tabId + '-' + child.props?.name">
+                        <li @click="tabSelect(index)"
+                            :class="selectIndex == index ? 'select': ''">
+                            <font-awesome-icon v-if="child.props?.icon" :icon="child.props.icon"/>
+                            <span v-else>{{ child.props?.name }}</span>
+                            <div :style="getTabLineStyle(index)"
+                                v-if="index == $slots.default().filter(item => item.props).length - 1"></div>
+                        </li>
+                    </template>
+                </TransitionGroup>
             </ul>
         </Card>
         <div class="tab-body" :id="'bc-tab-' + tabId">
@@ -35,23 +36,12 @@ export default defineComponent({
         return {
             // 生成一个随机数作为id
             tabId: Math.random().toString(36).substr(2),
-            titleList: [] as {
-                id: string,
-                text: string,
-                icon?: string,
-                select?: boolean
-            }[],
-            nowTab: 0,
-            maxTab: 0
+            selectIndex: 0
         }
     },
     methods: {
         tabSelect(index: number) {
-            this.titleList.forEach(item => {
-                item.select = false
-            })
-            this.titleList[index].select = true
-            this.nowTab = index
+            this.selectIndex = index
             // 显示对应的内容
             const body = document.getElementById('bc-tab-' + this.tabId)
             const titles = body?.children
@@ -72,39 +62,38 @@ export default defineComponent({
                 }
             }
         },
-        getTabLineStyle(index: number) {
-            const x = index - this.nowTab
+        getTabLineStyle(maxIndex: number) {
+            const x = maxIndex - this.selectIndex
             return `transform: translateX(calc(-${x}00% - (var(--bc-tab-margin) * 2 + 10px) * ${x}))`
         }
     },
     mounted() {
-        this.$nextTick(() => {
-            // 根据正文内的 h2 标签生成导航列表
-            const body = document.getElementById('bc-tab-' + this.tabId)
-            const titles = body?.children
-            if(titles) {
-                for(let i = 0; i < titles.length; i++) {
-                    // 判断是不是 DIV 并且有 name 或者 icon 属性
-                    if(titles[i].nodeName == 'DIV' && (titles[i].getAttribute('name') || titles[i].getAttribute('icon'))) {
-                        const title = titles[i] as HTMLElement
-                        title.id = 'bc-tab-' + this.tabId + '-' + i
-                        title.style.display = i == 0 ? 'bock' : 'none'
-                        title.style.scrollBehavior = 'smooth'
-                        this.titleList.push({
-                            id: title.id,
-                            text: title.getAttribute('name') || '',
-                            icon: title.getAttribute('icon') || undefined,
-                            select: i == 0 ? true : undefined
-                        })
-                    }
-                }
-            }
+        // 如果有效插槽项有变更（增加或减少），重选选择下当前选中的选项；方式出现没有隐藏的 DIV
+        this.$watch(() => this.$slots.default ? this.$slots.default().filter(item => item.props).length : 0, () => {
+            this.$nextTick(() => {
+                this.tabSelect(this.selectIndex)
+            })
         })
     }
 })
 </script>
   
 <style scoped>
+.tabar-move,
+.tabar-enter-active,
+.tabar-leave-active {
+    transition: transform .3s, opacity .1s;
+}
+.tabar-enter-from,
+.tabar-leave-to {
+    transform: translateX(10px);
+    opacity: 0;
+}
+.tabar-leave-active {
+  position: absolute;
+  right: 0;
+}
+
 .tab-main > div:first-child {
     margin-bottom: 10px;
 }
@@ -114,6 +103,7 @@ export default defineComponent({
     margin: -17px -20px -17px -40px;
     justify-content: center;
     align-items: center;
+    position: relative;
     display: flex;
 }
 .tab-bar > span {
@@ -142,7 +132,7 @@ export default defineComponent({
 .tab-bar > li > div {
     width: calc(100% + 10px);
     margin-bottom: -10px;
-    transition: all .2s;
+    transition: all .35s;
     border-radius: 7px;
     margin-top: 6px;
     height: 3px;

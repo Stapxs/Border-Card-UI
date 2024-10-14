@@ -20,11 +20,7 @@
             <h3>示例</h3>
             <ss-card class="card-1" title="view" icon="fa-solid fa-mountain">
                 <div class="view-space" id="ss-card-code">
-                    <ss-card
-                        title="提醒"
-                        icon="fa-solid fa-circle-info"
-                        id="delCard"
-                        @remove="removeCard">
+                    <ss-card title="提醒" icon="fa-solid fa-circle-info" id="delCard" @remove="removeCard">
                         <span><code>ss-card</code> 卡片拥有 <code>5px</code> 的外边框，这是阴影的预留空间；
                             在进行元素对齐的时候需要留意。你可以点击关闭按钮移除这个卡片。</span>
                     </ss-card>
@@ -37,8 +33,8 @@
                             </div>
                         </ss-card>
                         <ss-card>
-                            <div style="display: flex;align-items: center;"> 
-                                <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info"/>
+                            <div style="display: flex;align-items: center;">
+                                <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info" />
                                 <span>但是你不能将作用于内容的 style 样式直接添加在卡片上，套一个 div 或许是个好的选择。</span>
                             </div>
                         </ss-card>
@@ -50,27 +46,27 @@
                     {{ '    icon="fa-solid fa-circle-info"\n' }}
                     {{ '    @remove="removeCard">\n' }}
                     {{ '    <span><code>ss-card</code> 卡片拥有 <code>5px</code> 的外边框，这是阴影的预留空间；\n' }}
-                    {{ '        在进行元素对齐的时候需要留意。你可以点击关闭按钮移除这个卡片。</span>\n' }}
+                    {{ ' 在进行元素对齐的时候需要留意。你可以点击关闭按钮移除这个卡片。</span>\n' }}
                     {{ '</ss-card>\n' }}
-                    {{ '<div style="display: flex;align-items: start;">\n' }}
-                    {{ '    <ss-card title="卡片颜色" icon>\n' }}
-                    {{ '        <div class="color-view">\n' }}
-                    {{ '            <div class="card font">card + font</div>\n' }}
-                    {{ '            <div class="card-1 font-1">card-1 + font-1</div>\n' }}
-                    {{ '            <div class="card-2 font-2">card-2 + font-2</div>\n' }}
-                    {{ '        </div>\n' }}
-                    {{ '    </ss-card>\n' }}
-                    {{ '    <ss-card>\n' }}
-                    {{ '        <div style="display: flex;align-items: center;">\n' }}
-                    {{ '            <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info"/>\n' }}
-                    {{ '            <span>但是你不能将 style 样式直接添加在卡片上，套一个 div 或许是个好的选择。</span>\n' }}
-                    {{ '        </div>\n' }}
-                    {{ '    </ss-card>\n' }}
-                    {{ '</div>' }}
-                </code></div>
-            </ss-card>
+            {{ '<div style="display: flex;align-items: start;">\n' }}
+                {{ ' <ss-card title="卡片颜色" icon>\n' }}
+                    {{ ' <div class="color-view">\n' }}
+                        {{ ' <div class="card font">card + font</div>\n' }}
+                        {{ ' <div class="card-1 font-1">card-1 + font-1</div>\n' }}
+                        {{ ' <div class="card-2 font-2">card-2 + font-2</div>\n' }}
+                        {{ ' </div>\n' }}
+                    {{ ' </ss-card>\n' }}
+                {{ ' <ss-card>\n' }}
+                    {{ ' <div style="display: flex;align-items: center;">\n' }}
+                        {{ ' <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info" />\n' }}
+                        {{ ' <span>但是你不能将 style 样式直接添加在卡片上，套一个 div 或许是个好的选择。</span>\n' }}
+                        {{ ' </div>\n' }}
+                    {{ ' </ss-card>\n' }}
+                {{ '</div>' }}
+            </code></div>
         </ss-card>
-        
+        </ss-card>
+
         <h2 icon="fa-solid fa-puzzle-piece">表单</h2>
         <ss-card title="表单" icon>
             <p>
@@ -98,7 +94,9 @@
                             <span>公开显示邮箱</span>
                             <label class="ss-switch">
                                 <input type="checkbox">
-                                <div><div></div></div>
+                                <div>
+                                    <div></div>
+                                </div>
                             </label>
                         </div>
                         <div>
@@ -109,17 +107,23 @@
                             <span>性别</span>
                             <label class="ss-radio">
                                 <input type="radio" name="f">
-                                <div><div></div></div>
+                                <div>
+                                    <div></div>
+                                </div>
                             </label>
                             <span>男</span>
                             <label class="ss-radio">
                                 <input type="radio" name="f">
-                                <div><div></div></div>
+                                <div>
+                                    <div></div>
+                                </div>
                             </label>
                             <span>女</span>
                             <label class="ss-radio">
                                 <input type="radio" name="f" checked>
-                                <div><div></div></div>
+                                <div>
+                                    <div></div>
+                                </div>
                             </label>
                             <span>其他</span>
                         </div>
@@ -189,8 +193,8 @@
         <h2 icon="fa-solid fa-scroll">滚动标签卡</h2>
         <ss-card title="滚动标签卡：bc-scrolltab" icon>
             <ss-card class="card-1">
-                <div style="display: flex;align-items: center;"> 
-                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-lightbulb"/>
+                <div style="display: flex;align-items: center;">
+                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-lightbulb" />
                     <span>这是个来自 Stapxs QQ Lite 的设置列表风格</span>
                 </div>
             </ss-card>
@@ -204,10 +208,10 @@
                 <li><code>icon</code> ：标签项的图标，使用 Font Awesome 名称。需要将它添加在正文中的 H2 标签上，组件将会自动获取并用于生成列表。</li>
             </ul>
             <ss-card class="card-1" style="margin: 0 40px;">
-                <div style="display: flex;align-items: center;"> 
-                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info"/>
+                <div style="display: flex;align-items: center;">
+                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info" />
                     <span>注意，当你不想要显示 H2 的时候，不要使用 <code>display: none</code>，这样会导致无法正常捕获到它，<br>
-                你可以使用 <code>opacity: 0</code> 或者 <code>height: 0</code> 来隐藏它。</span>
+                        你可以使用 <code>opacity: 0</code> 或者 <code>height: 0</code> 来隐藏它。</span>
                 </div>
             </ss-card>
             <h3>示例</h3>
@@ -221,7 +225,8 @@
                         <h2>卡片2</h2>
                         <ss-card>
                             <img class="just-img" src="https://lib.stapxs.cn/download/pic/desktopImg/95018142_p0.png">
-                            <a class="just-img-a" href="https://www.pixiv.net/artworks/95018142">* 图片来源，侵权请反馈仓库 issue。</a>
+                            <a class="just-img-a" href="https://www.pixiv.net/artworks/95018142">* 图片来源，侵权请反馈仓库
+                                issue。</a>
                         </ss-card>
                     </bc-scrolltab>
                 </div>
@@ -238,8 +243,8 @@
         <h2 icon="fa-solid fa-table-columns">切换标签卡</h2>
         <ss-card title="切换标签卡：bc-tab" icon>
             <ss-card class="card-1">
-                <div style="display: flex;align-items: center;"> 
-                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-lightbulb"/>
+                <div style="display: flex;align-items: center;">
+                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-lightbulb" />
                     <span>这是个来自古老的 Stapxs Tool Box 的设置页面风格</span>
                 </div>
             </ss-card>
@@ -268,22 +273,25 @@
                     <bc-tab title="设置">
                         <div name="账号" style="height: 300px;overflow-y: scroll;">
                             <ss-card>
-                                <div style="display: flex;align-items: center;"> 
-                                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-lightbulb"/>
+                                <div style="display: flex;align-items: center;">
+                                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-lightbulb" />
                                     <span>在 Tab 切换的时候，如果 Tab 下的内容可以滚动；bc-tab 将会把内容滚回顶部（如果在这之前滚动到了其他位置）。</span>
                                 </div>
                             </ss-card>
                             <ss-card style="margin-top: 10px">
                                 <ss-card class='card-1'>
                                     <div style="display: flex;align-items: center;">
-                                        <img src="https://secure.gravatar.com/avatar/75c55a45cadac8669a1c5e4943cda5ce?s=330&r=G" class="card-2" style="width: 3rem;height: 3rem;border-radius: 100%;">
+                                        <img src="https://secure.gravatar.com/avatar/75c55a45cadac8669a1c5e4943cda5ce?s=330&r=G"
+                                            class="card-2" style="width: 3rem;height: 3rem;border-radius: 100%;">
                                         <div style="display: flex;flex-direction: column;margin-left: 20px;">
                                             <span style="font-weight: bold;color: var(--color-main);">{{ name }}</span>
-                                            <span style="font-size:0.8rem;color: var(--colr-font-2);">example@outlook.com</span>
+                                            <span
+                                                style="font-size:0.8rem;color: var(--colr-font-2);">example@outlook.com</span>
                                         </div>
                                     </div>
                                 </ss-card>
-                                <ss-card style="margin-top: 10px" class="card-1" :title="'用户信息' + (name != '' ? '（' + name + '）' : '')">
+                                <ss-card style="margin-top: 10px" class="card-1"
+                                    :title="'用户信息' + (name != '' ? '（' + name + '）' : '')">
                                     <div class="form-demo" style="margin: 0">
                                         <div>
                                             <span>昵称</span>
@@ -297,7 +305,9 @@
                                             <span>公开显示邮箱</span>
                                             <label class="ss-switch">
                                                 <input type="checkbox">
-                                                <div class="card-2"><div></div></div>
+                                                <div class="card-2">
+                                                    <div></div>
+                                                </div>
                                             </label>
                                         </div>
                                         <div>
@@ -308,8 +318,25 @@
                                 </ss-card>
                             </ss-card>
                         </div>
-                        <ss-card name="界面">这是界面设置</ss-card>
-                        <ss-card name="功能">这是功能设置</ss-card>
+                        <ss-card name="界面">
+                            这是界面设置
+                            <div class="form-demo" style="margin: 0">
+                                <div style="display: flex;align-items: center;">
+                                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-lightbulb" />
+                                    <span>在 <code>0.2.5</code> 版本及以后，你可以在 Tab 元素上使用 <code>v-if</code> 来隐藏整个选项。</span>
+                                </div>
+                                <div class="ss-card" style="background: var(--color-card-1);padding: 15px 20px;">
+                                    <span>显示功能</span>
+                                    <label class="ss-switch">
+                                        <input type="checkbox" v-model="showFun">
+                                        <div>
+                                            <div></div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </ss-card>
+                        <ss-card name="功能" v-if="showFun">这是功能设置</ss-card>
                         <ss-card name="高级">这是高级设置</ss-card>
                     </bc-tab>
                 </div>
@@ -342,8 +369,8 @@
             <h3>可选参数</h3>
             这个组件没有组件可选参数，它需要使用代码方式初始化和控制。你只需要在页面上放置一个 <code>bc-popbox</code> 组件即可。
             <ss-card class="card-1" style="margin-top: 10px;">
-                <div style="display: flex;align-items: center;"> 
-                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info"/>
+                <div style="display: flex;align-items: center;">
+                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info" />
                     <span>建议把组件放置在页面文档的最底端以防止一些奇怪的排版错误</span>
                 </div>
             </ss-card>
@@ -412,15 +439,16 @@
                 <li><code>time</code> : 吐司的显示时间（毫秒）。默认为 5000。</li>
             </ul>
             <ss-card class="card-1" style="margin-top: 10px;margin: 0 30px;">
-                <div style="display: flex;align-items: center;"> 
-                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info"/>
+                <div style="display: flex;align-items: center;">
+                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info" />
                     <span>建议把组件放置在页面文档的最底端以防止一些奇怪的排版错误</span>
                 </div>
             </ss-card>
             <h3>方法</h3>
             在应用初始化导入组件后，Toast 的操作方法将被挂载到全局 <code>$bcui['bc-toast']</code> 下，你可以直接使用它来操作吐司。
             <ul>
-                <li><code>show(info: ToastInfo): number</code> ：显示吐司，返回吐司 ID。参数 <code>info</code> 是一个对象，它包含了吐司的信息，具体内容如下：
+                <li><code>show(info: ToastInfo): number</code> ：显示吐司，返回吐司 ID。参数 <code>info</code>
+                    是一个对象，它包含了吐司的信息，具体内容如下：
                     <ul>
                         <li><code>icon</code> : 「必填」吐司的图标。</li>
                         <li><code>text</code> : 「必填」吐司的文本。</li>
@@ -481,8 +509,8 @@
                 <li><code>id</code> : 「自动生成必填」菜单项 ID。你需要写在正文的 LI 元素上。</li>
             </ul>
             <ss-card class="card-1" style="margin-top: 10px;margin: 0 30px;">
-                <div style="display: flex;align-items: center;"> 
-                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-mountain"/>
+                <div style="display: flex;align-items: center;">
+                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-mountain" />
                     <span>
                         菜单组件会使用 <code>position: absolute;</code> 来覆盖父级 DIV，
                         为了防止意外的排版错误，建议给菜单组件的父级元素添加 <code>position: relative;</code>。
@@ -501,33 +529,38 @@
                         <div class="menu-view">
                             <div @contextmenu.prevent="showMenu">
                                 <img class="hd" :src="require('../assets/lama.jpg')">
-                                <ss-card class="card-1"><div class="menu-view-body">您赶紧把 BCUI 做成组件罢！</div></ss-card>
+                                <ss-card class="card-1">
+                                    <div class="menu-view-body">您赶紧把 BCUI 做成组件罢！</div>
+                                </ss-card>
                             </div>
                             <div @contextmenu.prevent="showMenu($event, true)">
                                 <div class="space"></div>
-                                <ss-card class="card-1"><div class="menu-view-body">啊？什么？听不见 ——</div></ss-card>
+                                <ss-card class="card-1">
+                                    <div class="menu-view-body">啊？什么？听不见 ——</div>
+                                </ss-card>
                             </div>
                             <div @contextmenu.prevent="showMenu">
                                 <img class="hd" :src="require('../assets/lama.jpg')">
-                                <ss-card class="card-1"><div class="menu-view-body">
-                                    <img style="width: 150px;" :src="require('../assets/face.gif')">
-                                </div></ss-card>
+                                <ss-card class="card-1">
+                                    <div class="menu-view-body">
+                                        <img style="width: 150px;" :src="require('../assets/face.gif')">
+                                    </div>
+                                </ss-card>
                             </div>
                             <div @contextmenu.prevent="showMenu($event, true)">
                                 <div class="space"></div>
-                                <ss-card class="card-1"><div class="menu-view-body">
-                                    <a class="just-img-b" href="https://www.pixiv.net/artworks/75558054">
-                                        图片来源，侵权请反馈仓库 issue
-                                    </a><br>
-                                    我只是想告诉你菜单是有毛玻璃效果的 XD
-                                </div></ss-card>
+                                <ss-card class="card-1">
+                                    <div class="menu-view-body">
+                                        <a class="just-img-b" href="https://www.pixiv.net/artworks/75558054">
+                                            图片来源，侵权请反馈仓库 issue
+                                        </a><br>
+                                        我只是想告诉你菜单是有毛玻璃效果的 XD
+                                    </div>
+                                </ss-card>
                             </div>
                         </div>
                     </ss-card>
-                    <bc-menu
-                        :data="menuStatue"
-                        @close="closeMenu"
-                        name="demo-menu">
+                    <bc-menu :data="menuStatue" @close="closeMenu" name="demo-menu">
                         <ul>
                             <li icon="fa-solid fa-message" id="reply">回复</li>
                             <li icon="fa-solid fa-clipboard" id="copy">复制</li>
@@ -579,8 +612,8 @@
                 <div class="view-space" style="display: flex;flex-direction: column;position: relative;">
                     <bc-expander title="折叠面板" icon>
                         <ss-card class="card-1" style="margin-top: 10px;">
-                            <div style="display: flex;align-items: center;"> 
-                                <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info"/>
+                            <div style="display: flex;align-items: center;">
+                                <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-circle-info" />
                                 <span>这儿什么都没有！</span>
                             </div>
                         </ss-card>
@@ -623,7 +656,8 @@ export default defineComponent({
                 show: false,
                 point: { x: 0, y: 0 }
             } as MenuStatue,
-            name: '林小槐'
+            name: '林槐',
+            showFun: true
         }
     },
     methods: {
