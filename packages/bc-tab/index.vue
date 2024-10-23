@@ -28,6 +28,7 @@ import Card from '../ss-card'
 
 export default defineComponent({
     name: "bc-tab",
+    emits: ['selected'],
     props: {
         title: { type: String, default: undefined }
     },
@@ -61,6 +62,7 @@ export default defineComponent({
                     }
                 }
             }
+            this.$emit('selected', index)
         },
         getTabLineStyle(maxIndex: number) {
             const x = maxIndex - this.selectIndex
@@ -68,7 +70,8 @@ export default defineComponent({
         }
     },
     mounted() {
-        // 如果有效插槽项有变更（增加或减少），重选选择下当前选中的选项；方式出现没有隐藏的 DIV
+        this.tabSelect(0)
+        // // 如果有效插槽项有变更（增加或减少），重选选择下当前选中的选项；方式出现没有隐藏的 DIV
         this.$watch(() => this.$slots.default ? this.$slots.default().filter(item => item.props).length : 0, () => {
             this.$nextTick(() => {
                 this.tabSelect(this.selectIndex)

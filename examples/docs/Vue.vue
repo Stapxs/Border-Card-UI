@@ -254,6 +254,7 @@
             <h3>可选参数</h3>
             <ul>
                 <li><code>title</code> ：标签卡列表的标题。如果存在将会显示在标签卡列表的左边，同时所有选项将会右对齐显示。</li>
+                <li><code>selected</code> ：标签卡被点击的回调，如果需要的话可以进行一些切换附加操作。</li>
                 <li><code>icon</code> ：标签项的图标。使用 Font Awesome 名称。你需要把它添加在每个正文的 DIV 上，在有图标的时候优先显示图标。</li>
                 <li><code>name</code> : 「必填」标签项的名字。你需要把它添加在每个正文的 DIV 上。</li>
             </ul>
@@ -270,7 +271,7 @@
                             <div icon="fa-solid fa-heart"></div>
                         </bc-tab>
                     </div>
-                    <bc-tab title="设置">
+                    <bc-tab title="设置" @selected="closeMenu">
                         <div name="账号" style="height: 300px;overflow-y: scroll;">
                             <ss-card>
                                 <div style="display: flex;align-items: center;">
@@ -336,12 +337,19 @@
                                 </div>
                             </div>
                         </ss-card>
-                        <ss-card name="功能" v-if="showFun">这是功能设置</ss-card>
+                        <div name="功能" v-if="showFun">
+                            <ss-card>
+                                <div style="display: flex;align-items: center;">
+                                    <font-awesome-icon style="margin-right: 30px;" icon="fa-solid fa-lightbulb" />
+                                    <span>你可以给 ss-tab 传递 <code>@selected</code> 方法来执行切换回调，需要注意的是在 ss-tab 被加载完成时此方法也会被触发。</span>
+                                </div>
+                            </ss-card>
+                        </div>
                         <ss-card name="高级">这是高级设置</ss-card>
                     </bc-tab>
                 </div>
                 <div class="code card-2"><code>
-                    {{ '<bc-tab title="设置">\n' }}
+                    {{ '<bc-tab title="设置" @selected="closeMenu">\n' }}
                     {{ '    <ss-card name="账号">这是账号设置</ss-card>\n' }}
                     {{ '    <ss-card name="界面">这是界面设置</ss-card>\n' }}
                     {{ '    <ss-card name="功能">这是功能设置</ss-card>\n' }}
@@ -668,7 +676,7 @@ export default defineComponent({
         },
         closeMenu(id: string) {
             this.menuStatue.show = false
-            if(id) {
+            if(id != undefined) {
                 this.toast.show({
                     icon: 'fa-solid fa-circle-info',
                     text: `${id} 被点击了。`,
