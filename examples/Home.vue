@@ -4,7 +4,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance } from 'vue'
+import { defineComponent } from 'vue'
 export default defineComponent({
     name: 'HomeView'
 });

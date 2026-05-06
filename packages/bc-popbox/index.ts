@@ -20,8 +20,12 @@ const appendFun = {
 }
 
 PopBox.install = (app: App): void => {
-    app.component(PopBox.name, PopBox)
-    app.config.globalProperties['$bcui'] = { 'bc-popbox': appendFun }
+    if(PopBox.name) {
+        app.component(PopBox.name, PopBox)
+        app.config.globalProperties['$bcui'] = { 'bc-popbox': appendFun }
+    } else {
+        console.warn('注册为全局组件失败')
+    }
 }
 PopBox.append = appendFun
 

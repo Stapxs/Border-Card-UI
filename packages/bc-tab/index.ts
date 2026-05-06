@@ -1,8 +1,12 @@
 import { App } from 'vue'
-import Card from './index.vue'
+import Tab from './index.vue'
 
-Card.install = (app: App): void => {
-    app.component(Card.name, Card)
+Tab.install = (app: App): void => {
+    if(Tab.name) {
+        app.component(Tab.name, Tab)
+    } else {
+        console.warn('注册为全局组件失败')
+    }
 }
 
-export default Card
+export default Tab

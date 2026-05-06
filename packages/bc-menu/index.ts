@@ -28,8 +28,12 @@ const appendFun = {
 }
 
 Menu.install = (app: App): void => {
-    app.component(Menu.name, Menu)
-    app.config.globalProperties['$bcui'] = { 'bc-menu': appendFun }
+    if(Menu.name) {
+        app.component(Menu.name, Menu)
+        app.config.globalProperties['$bcui'] = { 'bc-menu': appendFun }
+    } else {
+        console.warn('注册为全局组件失败')
+    }
 }
 Menu.append = appendFun
 

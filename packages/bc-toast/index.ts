@@ -45,8 +45,12 @@ const appendFun = {
 }
 
 Toast.install = (app: App): void => {
-    app.config.globalProperties['$bcui'] = { 'bc-toast': appendFun }
-    app.component(Toast.name, Toast)
+    if(Toast.name) {
+        app.component(Toast.name, Toast)
+        app.config.globalProperties['$bcui'] = { 'bc-toast': appendFun }
+    } else {
+        console.warn('注册为全局组件失败')
+    }
 }
 Toast.append = appendFun
 

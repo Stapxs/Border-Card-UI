@@ -1,8 +1,12 @@
 import { App } from 'vue'
-import Card from './index.vue'
+import Scroll from './index.vue'
 
-Card.install = (app: App): void => {
-    app.component(Card.name, Card)
+Scroll.install = (app: App): void => {
+    if(Scroll.name) {
+        app.component(Scroll.name, Scroll)
+    } else {
+        console.warn('注册为全局组件失败')
+    }
 }
 
-export default Card
+export default Scroll
